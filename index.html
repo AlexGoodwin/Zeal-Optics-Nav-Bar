@@ -278,17 +278,28 @@
                 e.preventDefault();
 
                 $('.navbar').toggleClass('slide-active');
+                
+                // close sub-menus
+                $('.slide-menu > li > ul').slideUp();
+                $('.slide-menu > li > a').removeClass('open');
             });
 
             // side menu toggle
             $('.slide-menu > li > a').click(function(e) {
                 e.preventDefault();
-                // close other sub-menus
-                $('.slide-menu > li > ul').slideUp();
                 
-                // open this sub-menu
-                $(this).parent().find('ul').slideToggle();
-                $(this).toggleClass('open');
+                if ($(this).hasClass('open')) {
+                    $(this).siblings('ul').slideUp();
+                    $(this).removeClass('open');
+                }
+                else {
+                    $(this).siblings('ul').slideDown();
+                    $(this).addClass('open');
+                }
+                
+                // close other sub-menus
+                $(this).parent().siblings().children('ul').slideUp();
+                $(this).parent().siblings().children('a').removeClass('open');
             });
         });
     </script>
