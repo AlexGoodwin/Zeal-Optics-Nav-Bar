@@ -240,7 +240,7 @@
     </nav>
     
     <div style="width: 100%; height: 600px; background: orange;">
-        <span>Blah blah blah blah blah blah</span>
+        <span>Blah blah blah blah blah blah. Blah blah blah blah blah blah. Blah blah blah blah blah blah. Blah blah blah blah blah blah. Blah blah blah blah blah blah. Blah blah blah blah blah blah. Blah blah blah blah blah blah. Blah blah blah blah blah blah. Blah blah blah blah blah blah. Blah blah blah blah blah blah. Blah blah blah blah blah blah. Blah blah blah blah blah blah. Blah blah blah blah blah blah. Blah blah blah blah blah blah. Blah blah blah blah blah blah. Blah blah blah blah blah blah. Blah blah blah blah blah blah. Blah blah blah blah blah blah. </span>
     </div>
 
     <script src="js/jquery-2.1.4.min.js"></script>
@@ -278,6 +278,11 @@
                 e.preventDefault();
 
                 $('.navbar').toggleClass('slide-active');
+                
+                // set height of side menu
+                $('.slide-menu').css({
+                    height: $(window).height()
+                });
                 
                 // close sub-menus
                 $('.slide-menu > li > ul').slideUp();
