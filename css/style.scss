@@ -1,0 +1,330 @@
+body {
+    padding: 0;
+    margin: 0;
+    background: #036;
+    box-sizing: border-box;
+}
+
+* {
+    box-sizing: inherit;
+}
+
+a {
+    font-family: "Interstate", sans-serif;
+    color: #666;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.navbar {
+    background: transparent;
+    padding: 0;
+    text-align: center;
+    font-size: 14px;
+    width: 100%;
+    
+    &.slide-active {
+        overflow-x: hidden;
+        
+        .nav-container {
+            left: 230px;
+        }
+        ul.slide-menu {
+            left: 0;
+        }
+    }
+    
+    ul.slide-menu {
+        width: 230px;
+        left: -230px;
+        top: 0;
+        position: absolute;
+        transition: .5s ease;
+        overflow: hidden;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        text-align: left;
+        background: white;
+        border-right: 1px solid #ccc;
+        height: calc(100% + 64px);
+        
+        & > li {
+            display: block;
+            padding: 0;
+            border-bottom: 1px solid #ccc;
+            
+            &:first-of-type {
+                padding: 16px 30px;
+            }
+            
+            form {
+                line-height: 24px;
+                position: relative;
+                
+                input[type=text], input[type=search] {
+                    border: none;
+                    border-bottom: 1px solid #333;
+                    padding: .5em;
+                    font-style: italic;
+                    font-size: 14px;
+                }
+                
+                input[type=submit] {
+                    background: url('../img/search_img.png') top left no-repeat;
+                    text-indent: -9999px;
+                    border: 0 none;
+                    width: 16px;
+                    height: 16px;
+                    position: absolute;
+                    top: 8px;
+                    right: 8px;
+                }
+            }
+            
+            & > a {
+                display: block;
+                color: #333;
+                background: url("../img/accordion-arrow-down.gif") 195px center no-repeat;
+                padding: 20px 30px;
+                
+                &:hover {
+                    
+                }
+                    
+                &.open {
+                    background-image: url("../img/accordion-arrow-up.gif");
+                }
+                
+                &.no-arrow{
+                    background: none;
+                }
+                
+                span {
+                    vertical-align: top;
+                    top: 2px;
+                    left: 5px;
+                    position: relative;
+                }
+            }
+            
+            ul {
+                display: none;
+                list-style: none;
+                padding: 0 30px;
+                
+                li {
+                    display: block;
+                    padding: 0;
+                    font-size: .8em;
+                    
+                    &:first-of-type {
+                        a { 
+                            padding-top: 0;
+                        }
+                    }
+                    
+                    a {
+                        color: #333;
+                        padding: 1em 2em;
+                        display: block;
+                        line-height: 1.5em;
+                    }
+                }
+            }
+        }
+    }
+    
+    .nav-container {
+        background: white;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0;
+        padding: 5px 10px;
+        position: relative;
+        transition: left .5s ease;
+        left: 0;
+        
+        .left-menu {
+            display: none;
+        }
+        
+        .search-and-country {
+            order: 1;
+            flex-grow: 2;
+            flex-basis: 0;
+            text-align: left;
+            
+            a {
+                display: inline-block;
+                margin: 0 10px;
+                padding: 0;
+                font-size: 12px;
+                color: #666;
+                padding-right: 0;
+                font-weight: 500;
+                
+                img {
+                }
+                
+                span {
+                    vertical-align: top;
+                    letter-spacing: 1px;
+                    position: relative;
+                    top: 2px;
+                    padding: 2px 5px;
+                }
+            }
+        }
+        
+        .nav-left, .nav-right {
+            flex-grow: 3;
+            flex-basis: 0;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            
+            li {
+                display: inline-block;
+                margin: auto 10px;
+                
+                a {
+                    font-weight: bold;
+                    color: #333;
+                    position: relative;
+                    overflow: visible;
+                    
+                    img.active-triangle {
+                        position: absolute;
+                        top: 45px;
+                        width: 20px;
+                        left: calc(50% - 10px);
+                    }
+                }
+                
+                ul.drop-down {
+                    display: none;
+                    padding: 0;
+                    position: absolute;
+                    left: 0;
+                    top: 99px;
+                    list-style: none;
+                    width: 100%;
+                    margin: 0;
+                    background: white;
+                    text-align: center;
+                    font-size: 0;
+                    border-top: 4px solid #ccc;
+                    border-radius: 0;
+                    
+                    li {
+                        margin: 0;
+                        display: inline-block;
+                        width: 25%;
+                        font-size: 1rem;
+                        padding: 0 50px 40px;
+                        box-sizing: border-box;
+                        vertical-align: top;
+                        
+                        a {
+                            color: #036;
+                            margin: 0px;
+
+                            img {
+                                width: 100%;
+                                display: block;
+                                margin: 40px 0;
+                            }
+                            
+                            span {
+                                font-size: 14px;
+                                letter-spacing: 1px;
+                                vertical-align: top;
+                                display: block
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        .nav-left {
+            order: 2;
+            text-align: right;
+        }
+        
+        .nav-right {
+            order: 4;
+            text-align: left;
+        }
+        
+        .logo {
+            order: 3;
+            flex-grow: 1;
+            margin: 0;
+            padding: 0;
+            
+            a.navbar-logo {
+                display: inline-block;
+                
+                .content {
+                    img{
+                        width: auto;
+                        height: 85px;
+                        transition: height .5s ease;
+                    }
+                }
+            }
+        }
+        
+        .account-and-cart {
+            order: 5;
+            flex-grow: 2;
+            flex-basis: 0;
+            text-align: right;
+            
+            a {
+                display: inline-block;
+                margin: 0 10px;
+                
+                .item-count {
+                    position: relative;
+                    top: -10px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .navbar {
+        .nav-container {   
+            .left-menu {
+                display: inline-flex;
+                flex-basis: 0;
+                flex-grow: 2;
+            }
+            
+            .search-and-country {
+                display: none;
+            }
+            
+            .nav-left, .nav-right {
+                display: none;
+            }
+            
+            .logo {
+                a.navbar-logo {
+                    .content {
+                        img {
+                            height: 50px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
