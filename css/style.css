@@ -177,8 +177,8 @@ a {
       -webkit-flex-grow: 3;
       -ms-flex-positive: 3;
       flex-grow: 3;
-      -webkit-flex-basis: 0;
       -ms-flex-preferred-size: 0;
+      -webkit-flex-basis: 0;
       flex-basis: 0;
       text-align: left; }
       /* line 214, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
@@ -299,8 +299,8 @@ a {
       -webkit-flex-grow: 4;
       -ms-flex-positive: 4;
       flex-grow: 4;
-      -webkit-flex-basis: 0;
       -ms-flex-preferred-size: 0;
+      -webkit-flex-basis: 0;
       flex-basis: 0;
       list-style: none;
       padding: 0;
@@ -411,8 +411,8 @@ a {
       -webkit-flex-grow: 3;
       -ms-flex-positive: 3;
       flex-grow: 3;
-      -webkit-flex-basis: 0;
       -ms-flex-preferred-size: 0;
+      -webkit-flex-basis: 0;
       flex-basis: 0;
       text-align: right; }
       /* line 479, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
@@ -430,8 +430,8 @@ a {
     display: -webkit-inline-flex;
     display: -ms-inline-flexbox;
     display: inline-flex;
-    -webkit-flex-basis: 0;
     -ms-flex-preferred-size: 0;
+    -webkit-flex-basis: 0;
     flex-basis: 0;
     -webkit-flex-grow: 2;
     -ms-flex-positive: 2;
