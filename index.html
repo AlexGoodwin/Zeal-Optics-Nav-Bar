@@ -11,8 +11,7 @@
     <link rel="stylesheet" href="css/style.css">
 
     <!-- webtype fonts -->
-<!--    <link href="css/f8780814-4f06-4cb3-a33a-a4037a65ed35.css" rel="stylesheet" type="text/css">-->
-    <link href="css/search_autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="css/f8780814-4f06-4cb3-a33a-a4037a65ed35.css" rel="stylesheet" type="text/css">
 
     <script src="js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 </head>
@@ -29,7 +28,14 @@
                 <!-- search -->
                 <a href="#" id="nav-search">
                     <img src="img/search_img.png">
+                    <img class="active-triangle" src="img/menu_active.png">
                 </a>
+                
+                <form id="input_ZOSearchBoxComponent" method="get" action="//www.zealoptics.com/en/search/">
+                    <input type="text" id="searchInput" placeholder="Search" name="text" maxlength="100">
+                    <a href="#" id="search-delete">X</a>
+                    <input type="submit" value="">
+                </form>
                 
                 <!-- country -->
                 <a href="#" id="nav-country">
@@ -39,7 +45,10 @@
             </div>
             <ul class="nav-left">
                 <li>
-                    <a href="#" id="nav-shop">Shop</a>
+                    <a href="#" id="nav-shop">
+                        Shop
+                        <img class="active-triangle" src="img/menu_active.png">
+                    </a>
                     <ul class="drop-down">
                         <li>
                             <a href="//www.zealoptics.com/en/shop/sunglasses?all=true">
@@ -68,7 +77,10 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#" id="nav-technology">Technology</a>
+                    <a href="#" id="nav-technology">
+                        Technology
+                        <img class="active-triangle" src="img/menu_active.png">
+                    </a>
                     <ul class="drop-down">
                         <li>
                             <a href="//www.zealoptics.com/en/sunglass-technology">
@@ -99,7 +111,10 @@
             </div>
             <ul class="nav-right">
                 <li>
-                    <a href="#" id="nav-our-story">Our Story</a>
+                    <a href="#" id="nav-our-story">
+                        Our Story
+                        <img class="active-triangle" src="img/menu_active.png">
+                    </a>
                     <ul class="drop-down">
                         <li>
                             <a href="//www.zealoptics.com/en/who-we-are">
@@ -122,7 +137,10 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#" id="nav-explore-more">Explore More</a>
+                    <a href="#" id="nav-explore-more">
+                        Explore More
+                        <img class="active-triangle" src="img/menu_active.png">
+                    </a>
                     <ul class="drop-down">
                         <li>
                             <a href="//www.zealoptics.com/en/who-we-are">
@@ -239,37 +257,40 @@
         </ul>
     </nav>
     
-    <div style="width: 100%; height: 600px; background: orange;">
-        <span>Blah blah blah blah blah blah. Blah blah blah blah blah blah. Blah blah blah blah blah blah. Blah blah blah blah blah blah. Blah blah blah blah blah blah. Blah blah blah blah blah blah. Blah blah blah blah blah blah. Blah blah blah blah blah blah. Blah blah blah blah blah blah. Blah blah blah blah blah blah. Blah blah blah blah blah blah. Blah blah blah blah blah blah. Blah blah blah blah blah blah. Blah blah blah blah blah blah. Blah blah blah blah blah blah. Blah blah blah blah blah blah. Blah blah blah blah blah blah. Blah blah blah blah blah blah. </span>
+    <div style="width: 100%; height: 1600px; background: url(https://images.contentful.com/1kzutnf7jc3r/2LiYUxGSLuMWqkqwGeowce/d8fd199c6b0c149a99131fa38adab3cd/0011_HP_Component_1.jpg?q=80); background-size: contain; background-position: center center;">
+        <div style="font-size: 4em; color: white; text-align: center; font-family: Interstate">Welcome To Ellume</div>
     </div>
 
     <script src="js/jquery-2.1.4.min.js"></script>
     <script>
         $(function() {
             $(window).on('resize', function() {
+                // close side bar on window resize
                 $('.navbar').removeClass('slide-active');
             });
         
             // top-level desktop nav
             $('.nav-container > ul > li > a').click(function(e) {
                 e.preventDefault();
-
-                // remove other menu_active triangle images
-                $('.nav-container .active-triangle').remove();
+                
+                // close search
+                $('#input_ZOSearchBoxComponent').slideUp();
+                $('#nav-search').removeClass('open');
 
                 // open this drop-down
                 if($(this).parent().find('ul.drop-down').hasClass('open')) {
                     $(this).parent().find('ul.drop-down').slideUp().removeClass('open');
+                    $(this).removeClass('open');
                 }
                 else{
                     // close other drop-downs
                     $('.nav-container .drop-down.open').slideUp().removeClass('open');
+                    $('.nav-container > ul > li > a').removeClass('open');
 
                     // open this drop-down
                     $(this).parent().find('ul.drop-down').slideDown().addClass('open');
-
-                    // attach menu_active triangle
-                    $(this).append('<img class="active-triangle" src="img/menu_active.png">');
+                    
+                    $(this).addClass('open');
                 }
             });
 
@@ -281,7 +302,7 @@
                 
                 // set height of side menu
                 $('.slide-menu').css({
-                    height: $(window).height()
+                    height: 9999
                 });
                 
                 // close sub-menus
@@ -289,7 +310,7 @@
                 $('.slide-menu > li > a').removeClass('open');
             });
 
-            // side menu toggle
+            // side menu sub-menus
             $('.slide-menu > li > a').click(function(e) {
                 e.preventDefault();
                 
@@ -305,6 +326,34 @@
                 // close other sub-menus
                 $(this).parent().siblings().children('ul').slideUp();
                 $(this).parent().siblings().children('a').removeClass('open');
+            });
+            
+            // desktop search
+            $('#nav-search').on('click', function(e) {
+                e.preventDefault();
+                
+                // close menu sub-menus
+                $('.nav-container .drop-down.open').slideUp().removeClass('open');
+                $('.nav-container > ul > li > a').removeClass('open');
+                
+                // attach menu_active triangle
+                if( $(this).hasClass('open') ) {
+                    $('#input_ZOSearchBoxComponent').slideUp();
+                    $('#input_ZOSearchBoxComponent #searchInput').blur();
+                    $(this).removeClass('open');
+                }else{
+                    // open search box
+                    $('#input_ZOSearchBoxComponent').slideDown();
+                    $('#input_ZOSearchBoxComponent #searchInput').focus();
+                    $(this).addClass('open');
+                }
+            });
+            
+            // bind input clear x
+            $('a#search-delete').click(function(e) {
+                e.preventDefault();
+
+                $('#input_ZOSearchBoxComponent #searchInput').val('').focus();
             });
         });
     </script>

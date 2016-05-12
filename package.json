@@ -1,0 +1,23 @@
+{
+  "name": "zeal-optics-nav-bar",
+  "version": "1.0.0",
+  "description": "A functional clone of the zealoptics.com nav bar",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexGoodwin/Zeal-Optics-Nav-Bar.git"
+  },
+  "author": "Alex Goodwin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexGoodwin/Zeal-Optics-Nav-Bar/issues"
+  },
+  "homepage": "https://github.com/AlexGoodwin/Zeal-Optics-Nav-Bar#readme",
+  "devDependencies": {
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-sass": "^2.3.1"
+  }
+}

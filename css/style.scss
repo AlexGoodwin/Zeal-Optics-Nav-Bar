@@ -58,7 +58,7 @@ a {
         background: white;
         position: fixed;
         border-right: 1px solid $lightGrey;
-        height: calc(100% + 64px);
+        height: 2500px;
         
         & > li {
             display: block;
@@ -79,6 +79,7 @@ a {
                     padding: .5em;
                     font-style: italic;
                     font-size: 14px;
+                    border-radius: 0;
                 }
                 
                 input[type=submit] {
@@ -150,7 +151,7 @@ a {
         justify-content: space-between;
         align-items: center;
         margin: 0;
-        padding: 5px 10px;
+        padding: 8px 10px;
         position: relative;
         width: 100%;
         transition: left .5s ease;
@@ -176,6 +177,12 @@ a {
                 font-weight: 500;
                 
                 img {
+                    
+                    &.active-triangle {
+                        position: absolute;
+                        bottom: 0;
+                        display: none;
+                    }
                 }
                 
                 span {
@@ -184,6 +191,61 @@ a {
                     position: relative;
                     top: 2px;
                     padding: 2px 5px;
+                }
+                
+                &.open {
+                    img.active-triangle {
+                        display: block;
+                    }
+                }
+                
+                &#nav-search {
+                }
+            }
+            
+            form#input_ZOSearchBoxComponent {
+                display: none;
+                position: absolute;
+                top: 105px;
+                left: 0;
+                width: 100%;
+                background: white;
+                border-top: 4px solid $lightGrey;
+                padding: .5em 1em;
+                font-size: 2em;
+                
+                input[type=search], input[type=text] {
+                    text-transform: uppercase;
+                    width: 100%;
+                    float: left;
+                    padding: 0 0 .5em;
+                    border: none;
+                    border-bottom: 1px solid $lightGrey;
+                    color: $darkGrey;
+                    font-weight: bold;
+                    font-size: 1em;
+                    
+                    &:focus {
+                        outline: 0;
+                    }
+                }
+                
+                input[type=submit] {
+                    width: 0;
+                    float: left;
+                    border: none;
+                    padding: 0;
+                }
+                
+                a#search-delete {
+                    border: none;
+                    background: url(../img/btn-search-close.gif);
+                    width: 16px;
+                    height: 16px;
+                    position: absolute;
+                    right: 30px;
+                    top: 24px;
+                    text-indent: -9999px;
                 }
             }
         }
@@ -207,9 +269,16 @@ a {
                     
                     img.active-triangle {
                         position: absolute;
-                        top: 45px;
+                        top: 48px;
                         width: 20px;
                         left: calc(50% - 10px);
+                        display: none;
+                    }
+                    
+                    &.open {
+                        img.active-triangle {
+                            display: block;
+                        }
                     }
                 }
                 
@@ -218,7 +287,7 @@ a {
                     padding: 0;
                     position: absolute;
                     left: 0;
-                    top: 99px;
+                    top: 105px;
                     list-style: none;
                     width: 100%;
                     margin: 0;
