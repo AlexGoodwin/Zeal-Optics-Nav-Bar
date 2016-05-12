@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/style.css">
 
     <!-- webtype fonts -->
-    <link href="css/f8780814-4f06-4cb3-a33a-a4037a65ed35.css" rel="stylesheet" type="text/css">
+    <link href="//cloud.webtype.com/css/f8780814-4f06-4cb3-a33a-a4037a65ed35.css" rel="stylesheet" type="text/css" />
 
     <script src="js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 </head>
@@ -40,8 +40,23 @@
                 <!-- country -->
                 <a href="#" id="nav-country">
                     <img src="img/country-img.png">
-                    <span>USA&nbsp;&nbsp;(EN)</span>
+                    <span>USA&nbsp;(EN)</span>
                 </a>
+                
+                <ul id="desktop-country-selector">
+                    <li>
+                        <a href="//ca.zealoptics.com/en">
+                        Canada 
+                        <span class="language">(English)</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="//www.zealoptics.com/en">
+                        United States 
+                        <span class="language">(English)</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
             <ul class="nav-left">
                 <li>
@@ -164,11 +179,11 @@
                 </li>
             </ul>
             <div class="account-and-cart">
-                <a href="//www.zealoptics.com/en/login" id="nav-account">
+                <a href="//www.zealoptics.com/en/login" id="nav-account" title="Login/My Account">
                     <img src="img/icn-user.gif">
                 </a>
-                <a href="//www.zealoptics.com/en/cart" id="nav-cart">
-                    <span class="item-count">0</span>
+                <a href="//www.zealoptics.com/en/cart" id="nav-cart" title="My Cart">
+                    <!-- <span class="item-count">0</span> -->
                     <img src="img/mini-cart-icon.png">
                 </a>
             </div>
@@ -265,16 +280,26 @@
     <script>
         $(function() {
             // close side bar on window resize
-            $(window).on('resize', function() {
+            $(window)
+                .on('resize', function() {
                 $('.navbar').removeClass('slide-active');
+            })
+                .on('scroll', function() {
+                    if( $(window).width() > 991 && $(window).scrollTop() > $('.nav-container').height() ) {
+                        $('.nav-container').addClass('fixed');
+                    }
+                    else {
+                        $('.nav-container').removeClass('fixed');
+                    }
             });
+            
         
             // top-level desktop nav
             $('.nav-container > ul > li > a').click(function(e) {
                 e.preventDefault();
                 
                 // close search
-                $('#nav-search').parent().removeClass('open');
+                $('#nav-search').parent().removeClass('open-search').removeClass('open-country');
 
                 // open this drop-down
                 if($(this).parent().hasClass('open')) {
@@ -324,13 +349,27 @@
             });
             
             // desktop search
-            $('#nav-search').on('click', function(e) {
+            $('#nav-search').click(function(e) {
                 e.preventDefault();
                 
                 // close menu sub-menus
                 $('.nav-container > ul > li').removeClass('open');
                 
-                $(this).parent().toggleClass('open');
+                $(this).parent().toggleClass('open-search').removeClass('open-country');
+                
+                if($(this).parent().hasClass('open-search')) {
+                    $('#searchInput').focus();
+                }
+                else{
+                    $('#searchInput').blur();
+                }
+            });
+            
+            // desktop country selector
+            $('#nav-country').click(function(e) {
+                e.preventDefault();
+                $('.nav-container > ul > li').removeClass('open');
+                $(this).parent().toggleClass('open-country').removeClass('open-search');
             });
             
             // bind input clear x
