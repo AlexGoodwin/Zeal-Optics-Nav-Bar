@@ -48,7 +48,6 @@ a {
         width: 230px;
         left: -230px;
         top: 0;
-        position: absolute;
         transition: .5s ease;
         overflow: hidden;
         list-style: none;
@@ -207,7 +206,7 @@ a {
         
         .search-and-country {
             order: 1;
-            flex-grow: 2;
+            flex-grow: 3;
             flex-basis: 0;
             text-align: left;
             
@@ -277,11 +276,12 @@ a {
                 box-sizing: border-box;
                 transition: height .5s ease, padding .5s ease, border 0s;
                 position: absolute;
-                top: 104px;
+                top: 103px;
                 left: 0;
                 width: 100%;
                 background: white;
                 border-top: 0px solid $lightGrey;
+                border-radius: 0;
                 padding: 0 1em;
                 font-size: 2em;
                 z-index: 9;
@@ -352,7 +352,7 @@ a {
         }
         
         .nav-left, .nav-right {
-            flex-grow: 3;
+            flex-grow: 4;
             flex-basis: 0;
             list-style: none;
             padding: 0;
@@ -360,7 +360,7 @@ a {
             
             li {
                 display: inline-block;
-                margin: auto 10px;
+                margin: auto 6px;
                 
                 &.open {
                     a {
@@ -397,7 +397,7 @@ a {
                     padding: 0;
                     position: absolute;
                     left: 0;
-                    top: 104px;
+                    top: 103px;
                     list-style: none;
                     width: 100%;
                     margin: 0;
