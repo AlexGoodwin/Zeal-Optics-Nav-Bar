@@ -80,6 +80,10 @@ a {
                     font-style: italic;
                     font-size: 14px;
                     border-radius: 0;
+                    
+                    &:focus {
+                        outline: 0;
+                    }
                 }
                 
                 input[type=submit] {
@@ -90,7 +94,7 @@ a {
                     height: 16px;
                     position: absolute;
                     top: 8px;
-                    right: 8px;
+                    right: 15px;
                 }
             }
             
@@ -167,6 +171,21 @@ a {
             flex-basis: 0;
             text-align: left;
             
+            &.open {
+                form#input_ZOSearchBoxComponent {
+                    height: 80px;
+                    transition: height .5s ease, padding .5s ease, border 0s;
+                    padding: .5em 1em;
+                    border-top-width: 4px;
+                }
+                
+                a {
+                    img.active-triangle {
+                        display: block;
+                    }
+                }
+            }
+            
             a {
                 display: inline-block;
                 margin: 0 10px;
@@ -192,26 +211,20 @@ a {
                     top: 2px;
                     padding: 2px 5px;
                 }
-                
-                &.open {
-                    img.active-triangle {
-                        display: block;
-                    }
-                }
-                
-                &#nav-search {
-                }
             }
             
             form#input_ZOSearchBoxComponent {
-                display: none;
+                height: 0;
+                overflow: hidden;
+                box-sizing: border-box;
+                transition: height .5s ease, padding .5s ease, border 0s;
                 position: absolute;
                 top: 105px;
                 left: 0;
                 width: 100%;
                 background: white;
-                border-top: 4px solid $lightGrey;
-                padding: .5em 1em;
+                border-top: 0px solid $lightGrey;
+                padding: 0 1em;
                 font-size: 2em;
                 
                 input[type=search], input[type=text] {
@@ -261,6 +274,20 @@ a {
                 display: inline-block;
                 margin: auto 10px;
                 
+                &.open {
+                    a {
+                        img.active-triangle {
+                            display: block;
+                        }
+                    }
+                    
+                    ul.drop-down {
+                        height: 223px;
+                        transition: height .5s ease;
+                        border-top-width: 4px;
+                    }
+                }
+                
                 a {
                     font-weight: bold;
                     color: $darkGrey;
@@ -274,16 +301,10 @@ a {
                         left: calc(50% - 10px);
                         display: none;
                     }
-                    
-                    &.open {
-                        img.active-triangle {
-                            display: block;
-                        }
-                    }
                 }
                 
                 ul.drop-down {
-                    display: none;
+                    height: 0;
                     padding: 0;
                     position: absolute;
                     left: 0;
@@ -294,8 +315,10 @@ a {
                     background: white;
                     text-align: center;
                     font-size: 0;
-                    border-top: 4px solid $lightGrey;
+                    border-top: 0px solid $lightGrey;
                     border-radius: 0;
+                    transition: height .5s ease;
+                    overflow: hidden;
                     
                     li {
                         margin: 0;

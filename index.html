@@ -164,7 +164,7 @@
                 </li>
             </ul>
             <div class="account-and-cart">
-                <a href="#" id="nav-account">
+                <a href="//www.zealoptics.com/en/login" id="nav-account">
                     <img src="img/icn-user.gif">
                 </a>
                 <a href="//www.zealoptics.com/en/cart" id="nav-cart">
@@ -175,8 +175,8 @@
         </div>
         <ul class="slide-menu">
             <li>
-                <form>
-                    <input type="search" placeholder="Search">
+                <form method="get" action="//www.zealoptics.com/en/search/">
+                    <input type="search" placeholder="Search" name="text">
                     <input type="submit">
                 </form>
             </li>
@@ -264,8 +264,8 @@
     <script src="js/jquery-2.1.4.min.js"></script>
     <script>
         $(function() {
+            // close side bar on window resize
             $(window).on('resize', function() {
-                // close side bar on window resize
                 $('.navbar').removeClass('slide-active');
             });
         
@@ -274,23 +274,18 @@
                 e.preventDefault();
                 
                 // close search
-                $('#input_ZOSearchBoxComponent').slideUp();
-                $('#nav-search').removeClass('open');
+                $('#nav-search').parent().removeClass('open');
 
                 // open this drop-down
-                if($(this).parent().find('ul.drop-down').hasClass('open')) {
-                    $(this).parent().find('ul.drop-down').slideUp().removeClass('open');
-                    $(this).removeClass('open');
+                if($(this).parent().hasClass('open')) {
+                    $(this).parent().removeClass('open');
                 }
                 else{
                     // close other drop-downs
-                    $('.nav-container .drop-down.open').slideUp().removeClass('open');
-                    $('.nav-container > ul > li > a').removeClass('open');
+                    $('.nav-container > ul > li').removeClass('open');
 
                     // open this drop-down
-                    $(this).parent().find('ul.drop-down').slideDown().addClass('open');
-                    
-                    $(this).addClass('open');
+                    $(this).parent().addClass('open');
                 }
             });
 
@@ -333,20 +328,9 @@
                 e.preventDefault();
                 
                 // close menu sub-menus
-                $('.nav-container .drop-down.open').slideUp().removeClass('open');
-                $('.nav-container > ul > li > a').removeClass('open');
+                $('.nav-container > ul > li').removeClass('open');
                 
-                // attach menu_active triangle
-                if( $(this).hasClass('open') ) {
-                    $('#input_ZOSearchBoxComponent').slideUp();
-                    $('#input_ZOSearchBoxComponent #searchInput').blur();
-                    $(this).removeClass('open');
-                }else{
-                    // open search box
-                    $('#input_ZOSearchBoxComponent').slideDown();
-                    $('#input_ZOSearchBoxComponent #searchInput').focus();
-                    $(this).addClass('open');
-                }
+                $(this).parent().toggleClass('open');
             });
             
             // bind input clear x
@@ -356,20 +340,6 @@
                 $('#input_ZOSearchBoxComponent #searchInput').val('').focus();
             });
         });
-    </script>
-    <script>
-        // leftover search js
-        $(".holder-mob-search").submit(function(event) {
-            if ($(".holder-mob-search .form-control").val() == "") {
-                return false;
-            }
-        });
-        $(".form-searchbox").submit(function(event) {
-            if ($(".form-searchbox .form-control").val() == "") {
-                return false;
-            }
-        });
-
     </script>
 </body>
 
