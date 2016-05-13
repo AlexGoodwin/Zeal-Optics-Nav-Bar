@@ -68,6 +68,14 @@ a {
                 padding: 18.5px 30px;
             }
             
+            &.country {
+                a {
+                    img {
+                        width: 30px;
+                    }
+                }
+            }
+            
             form {
                 line-height: 24px;
                 position: relative;
@@ -88,7 +96,7 @@ a {
                 }
                 
                 input[type=submit] {
-                    background: url('../img/search_img.png') top left no-repeat;
+                    background: url('../img/search_img.svg') top left no-repeat;
                     text-indent: -9999px;
                     border: 0 none;
                     width: 16px;
@@ -202,6 +210,14 @@ a {
         
         .left-menu {
             display: none;
+            
+            a {
+                &#openSlideMenu {
+                    img {
+                        width: 24px;
+                    }
+                }
+            }
         }
         
         .search-and-country {
@@ -222,6 +238,7 @@ a {
                 a {
                     img.active-triangle {
                         display: block;
+                        width: 20px;
                     }
                 }
             }
@@ -251,6 +268,18 @@ a {
                 color: $mediumGrey;
                 padding-right: 0;
                 font-weight: 500;
+                
+                &#nav-search {
+                    img {
+                        width: 16px;
+                    }
+                }
+                
+                &#nav-country {
+                    img {
+                        width: 25px;
+                    }
+                }
                 
                 img {
                     
@@ -479,8 +508,22 @@ a {
             a {
                 display: inline-block;
                 margin: 0 10px;
+                font-size: 0;
+                
+                &#nav-account {
+                    background: url('../img/icn-user.svg') 0 0 no-repeat;
+                    width: 12px;
+                    height: 16px;
+                }
+                
+                &#nav-cart {
+                    background: url('../img/mini-cart-icon.svg') 0 0 no-repeat;
+                    width: 16px;
+                    height: 16px;
+                }
                 
                 .item-count {
+                    // note this isn't supported right now
                     position: relative;
                     top: -10px;
                 }
