@@ -5,7 +5,13 @@ $navy: #036;
 
 @import 'reset.css';
 
+// note webtype.com restricts type imports by domain, so you may get local errors
+@import 'f8780814-4f06-4cb3-a33a-a4037a65ed35.css';
+
 epic-navbar {
+    display: block;
+    box-sizing: border-box;
+    
     * {
         box-sizing: inherit;
     }
@@ -533,7 +539,7 @@ epic-navbar {
                 .left-menu {
                     display: inline-flex;
                     flex-basis: 0;
-                    flex-grow: 2;
+                    flex-grow: 3;
                 }
 
                 .search-and-country {
