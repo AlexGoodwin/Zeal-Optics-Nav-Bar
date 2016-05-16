@@ -1,43 +1,36 @@
 @import url(reset.css);
-/* line 8, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-body {
-  padding: 0;
-  margin: 0;
-  background: #036;
-  box-sizing: border-box; }
-
-/* line 15, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-* {
+/* line 9, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+epic-navbar * {
   box-sizing: inherit; }
 
-/* line 19, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-a {
+/* line 13, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+epic-navbar a {
   font-family: "Interstate", sans-serif;
   color: #666;
   text-decoration: none;
   text-transform: uppercase; }
 
-/* line 26, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-.navbar {
+/* line 19, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+epic-navbar .navbar {
   background: transparent;
   padding: 0;
   text-align: center;
   font-size: 14px;
   width: 100%; }
-  /* line 33, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-  .navbar.slide-active {
+  /* line 26, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+  epic-navbar .navbar.slide-active {
     overflow-x: hidden;
     overflow-y: visible;
     height: 64px; }
-    /* line 38, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-    .navbar.slide-active .nav-container {
+    /* line 31, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+    epic-navbar .navbar.slide-active .nav-container {
       left: 230px;
       position: fixed; }
-    /* line 42, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-    .navbar.slide-active ul.slide-menu {
+    /* line 35, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+    epic-navbar .navbar.slide-active ul.slide-menu {
       left: 0; }
-  /* line 47, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-  .navbar ul.slide-menu {
+  /* line 40, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+  epic-navbar .navbar ul.slide-menu {
     width: 230px;
     left: -230px;
     top: 0;
@@ -51,23 +44,23 @@ a {
     position: fixed;
     border-right: 1px solid #ccc;
     height: 2500px; }
-    /* line 62, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-    .navbar ul.slide-menu > li {
+    /* line 55, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+    epic-navbar .navbar ul.slide-menu > li {
       display: block;
       padding: 0;
       border-bottom: 1px solid #ccc; }
-      /* line 67, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-      .navbar ul.slide-menu > li:first-of-type {
+      /* line 60, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+      epic-navbar .navbar ul.slide-menu > li:first-of-type {
         padding: 18.5px 30px; }
-      /* line 73, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-      .navbar ul.slide-menu > li.country a img {
+      /* line 66, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+      epic-navbar .navbar ul.slide-menu > li.country a img {
         width: 30px; }
-      /* line 79, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-      .navbar ul.slide-menu > li form {
+      /* line 72, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+      epic-navbar .navbar ul.slide-menu > li form {
         line-height: 24px;
         position: relative; }
-        /* line 83, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-        .navbar ul.slide-menu > li form input[type=text], .navbar ul.slide-menu > li form input[type=search] {
+        /* line 76, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+        epic-navbar .navbar ul.slide-menu > li form input[type=text], epic-navbar .navbar ul.slide-menu > li form input[type=search] {
           border: none;
           border-bottom: 1px solid #333;
           padding: 0.5em 30px 0.5em 0.5em;
@@ -76,11 +69,11 @@ a {
           border-radius: 0;
           -webkit-appearance: none;
           width: 100%; }
-          /* line 93, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-          .navbar ul.slide-menu > li form input[type=text]:focus, .navbar ul.slide-menu > li form input[type=search]:focus {
+          /* line 86, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+          epic-navbar .navbar ul.slide-menu > li form input[type=text]:focus, epic-navbar .navbar ul.slide-menu > li form input[type=search]:focus {
             outline: 0; }
-        /* line 98, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-        .navbar ul.slide-menu > li form input[type=submit] {
+        /* line 91, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+        epic-navbar .navbar ul.slide-menu > li form input[type=submit] {
           background: url("../img/search_img.svg") top left no-repeat;
           text-indent: -9999px;
           border: 0 none;
@@ -89,48 +82,48 @@ a {
           position: absolute;
           top: 8px;
           right: 8px; }
-          /* line 108, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-          .navbar ul.slide-menu > li form input[type=submit]:hover {
+          /* line 101, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+          epic-navbar .navbar ul.slide-menu > li form input[type=submit]:hover {
             cursor: pointer; }
-      /* line 114, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-      .navbar ul.slide-menu > li > a {
+      /* line 107, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+      epic-navbar .navbar ul.slide-menu > li > a {
         display: block;
         color: #333;
         background: url("../img/accordion-arrow-down.gif") 195px center no-repeat;
         padding: 20px 30px; }
-        /* line 120, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-        .navbar ul.slide-menu > li > a.open {
+        /* line 113, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+        epic-navbar .navbar ul.slide-menu > li > a.open {
           background-image: url("../img/accordion-arrow-up.gif"); }
-        /* line 124, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-        .navbar ul.slide-menu > li > a.no-arrow {
+        /* line 117, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+        epic-navbar .navbar ul.slide-menu > li > a.no-arrow {
           background: none; }
-        /* line 128, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-        .navbar ul.slide-menu > li > a span {
+        /* line 121, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+        epic-navbar .navbar ul.slide-menu > li > a span {
           vertical-align: top;
           top: 2px;
           left: 5px;
           position: relative; }
-      /* line 136, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-      .navbar ul.slide-menu > li ul {
+      /* line 129, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+      epic-navbar .navbar ul.slide-menu > li ul {
         display: none;
         list-style: none;
         padding: 0 30px; }
-        /* line 141, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-        .navbar ul.slide-menu > li ul li {
+        /* line 134, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+        epic-navbar .navbar ul.slide-menu > li ul li {
           display: block;
           padding: 0;
           font-size: .8em; }
-          /* line 147, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-          .navbar ul.slide-menu > li ul li:first-of-type a {
+          /* line 140, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+          epic-navbar .navbar ul.slide-menu > li ul li:first-of-type a {
             padding-top: 0; }
-          /* line 152, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-          .navbar ul.slide-menu > li ul li a {
+          /* line 145, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+          epic-navbar .navbar ul.slide-menu > li ul li a {
             color: #333;
             padding: 1em 2em;
             display: block;
             line-height: 1.5em; }
-  /* line 163, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-  .navbar .nav-container {
+  /* line 156, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+  epic-navbar .navbar .nav-container {
     background: white;
     display: flex;
     flex-direction: row;
@@ -143,58 +136,58 @@ a {
     width: 100%;
     transition: left 0.5s ease;
     left: 0; }
-    /* line 177, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-    .navbar .nav-container.fixed {
+    /* line 170, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+    epic-navbar .navbar .nav-container.fixed {
       position: fixed; }
-      /* line 183, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-      .navbar .nav-container.fixed .logo a.navbar-logo .content img {
+      /* line 176, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+      epic-navbar .navbar .nav-container.fixed .logo a.navbar-logo .content img {
         height: 56px;
         transition: height 0.5s ease; }
-      /* line 192, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-      .navbar .nav-container.fixed .search-and-country form#input_ZOSearchBoxComponent {
+      /* line 185, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+      epic-navbar .navbar .nav-container.fixed .search-and-country form#input_ZOSearchBoxComponent {
         top: 75px; }
-      /* line 200, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-      .navbar .nav-container.fixed .nav-left li a img.active-triangle, .navbar .nav-container.fixed .nav-right li a img.active-triangle {
+      /* line 193, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+      epic-navbar .navbar .nav-container.fixed .nav-left li a img.active-triangle, epic-navbar .navbar .nav-container.fixed .nav-right li a img.active-triangle {
         top: 36px; }
-      /* line 204, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-      .navbar .nav-container.fixed .nav-left li ul.drop-down, .navbar .nav-container.fixed .nav-right li ul.drop-down {
+      /* line 197, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+      epic-navbar .navbar .nav-container.fixed .nav-left li ul.drop-down, epic-navbar .navbar .nav-container.fixed .nav-right li ul.drop-down {
         top: 75px; }
-    /* line 211, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-    .navbar .nav-container .left-menu {
+    /* line 204, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+    epic-navbar .navbar .nav-container .left-menu {
       display: none; }
-      /* line 216, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-      .navbar .nav-container .left-menu a#openSlideMenu img {
+      /* line 209, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+      epic-navbar .navbar .nav-container .left-menu a#openSlideMenu img {
         width: 24px; }
-    /* line 223, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-    .navbar .nav-container .search-and-country {
+    /* line 216, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+    epic-navbar .navbar .nav-container .search-and-country {
       order: 1;
       flex-grow: 3;
       flex-basis: 0;
       text-align: left; }
-      /* line 230, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-      .navbar .nav-container .search-and-country.open-search form#input_ZOSearchBoxComponent {
+      /* line 223, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+      epic-navbar .navbar .nav-container .search-and-country.open-search form#input_ZOSearchBoxComponent {
         height: 80px;
         transition: height 0.5s ease, padding 0.5s ease, border 0s;
         padding: 0.5em 1em;
         border-top-width: 4px;
         z-index: 10; }
-      /* line 239, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-      .navbar .nav-container .search-and-country.open-search a img.active-triangle {
+      /* line 232, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+      epic-navbar .navbar .nav-container .search-and-country.open-search a img.active-triangle {
         display: block;
         width: 20px; }
-      /* line 247, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-      .navbar .nav-container .search-and-country.open-country ul#desktop-country-selector {
+      /* line 240, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+      epic-navbar .navbar .nav-container .search-and-country.open-country ul#desktop-country-selector {
         height: 100px;
         padding: 1em;
         border-width: 1px;
         transition: height 0.5s ease, border 0s, padding-left 0s, padding-right 0s;
         z-index: 11; }
-      /* line 256, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-      .navbar .nav-container .search-and-country.open-country a#nav-country {
+      /* line 249, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+      epic-navbar .navbar .nav-container .search-and-country.open-country a#nav-country {
         background: url("../img/country-selector-arrow.png") right 4px no-repeat;
         padding-right: 4px; }
-      /* line 263, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-      .navbar .nav-container .search-and-country a {
+      /* line 256, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+      epic-navbar .navbar .nav-container .search-and-country a {
         display: inline-block;
         margin: 0 9px;
         padding: 0;
@@ -202,26 +195,26 @@ a {
         color: #666;
         padding-right: 0;
         font-weight: 500; }
-        /* line 273, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-        .navbar .nav-container .search-and-country a#nav-search img {
+        /* line 266, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+        epic-navbar .navbar .nav-container .search-and-country a#nav-search img {
           width: 16px; }
-        /* line 279, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-        .navbar .nav-container .search-and-country a#nav-country img {
+        /* line 272, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+        epic-navbar .navbar .nav-container .search-and-country a#nav-country img {
           width: 25px; }
-        /* line 286, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-        .navbar .nav-container .search-and-country a img.active-triangle {
+        /* line 279, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+        epic-navbar .navbar .nav-container .search-and-country a img.active-triangle {
           position: absolute;
           bottom: 0;
           display: none; }
-        /* line 293, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-        .navbar .nav-container .search-and-country a span {
+        /* line 286, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+        epic-navbar .navbar .nav-container .search-and-country a span {
           vertical-align: top;
           letter-spacing: 1px;
           position: relative;
           top: 2px;
           padding: 2px 5px; }
-      /* line 302, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-      .navbar .nav-container .search-and-country form#input_ZOSearchBoxComponent {
+      /* line 295, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+      epic-navbar .navbar .nav-container .search-and-country form#input_ZOSearchBoxComponent {
         height: 0;
         overflow: hidden;
         box-sizing: border-box;
@@ -236,8 +229,8 @@ a {
         padding: 0 1em;
         font-size: 2em;
         z-index: 9; }
-        /* line 318, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-        .navbar .nav-container .search-and-country form#input_ZOSearchBoxComponent input[type=search], .navbar .nav-container .search-and-country form#input_ZOSearchBoxComponent input[type=text] {
+        /* line 311, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+        epic-navbar .navbar .nav-container .search-and-country form#input_ZOSearchBoxComponent input[type=search], epic-navbar .navbar .nav-container .search-and-country form#input_ZOSearchBoxComponent input[type=text] {
           text-transform: uppercase;
           width: 100%;
           float: left;
@@ -247,17 +240,17 @@ a {
           color: #333;
           font-weight: bold;
           font-size: 1em; }
-          /* line 329, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-          .navbar .nav-container .search-and-country form#input_ZOSearchBoxComponent input[type=search]:focus, .navbar .nav-container .search-and-country form#input_ZOSearchBoxComponent input[type=text]:focus {
+          /* line 322, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+          epic-navbar .navbar .nav-container .search-and-country form#input_ZOSearchBoxComponent input[type=search]:focus, epic-navbar .navbar .nav-container .search-and-country form#input_ZOSearchBoxComponent input[type=text]:focus {
             outline: 0; }
-        /* line 334, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-        .navbar .nav-container .search-and-country form#input_ZOSearchBoxComponent input[type=submit] {
+        /* line 327, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+        epic-navbar .navbar .nav-container .search-and-country form#input_ZOSearchBoxComponent input[type=submit] {
           width: 0;
           float: left;
           border: none;
           padding: 0; }
-        /* line 341, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-        .navbar .nav-container .search-and-country form#input_ZOSearchBoxComponent a#search-delete {
+        /* line 334, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+        epic-navbar .navbar .nav-container .search-and-country form#input_ZOSearchBoxComponent a#search-delete {
           border: none;
           background: url(../img/btn-search-close.gif);
           width: 16px;
@@ -266,8 +259,8 @@ a {
           right: 30px;
           top: 24px;
           text-indent: -9999px; }
-      /* line 353, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-      .navbar .nav-container .search-and-country ul#desktop-country-selector {
+      /* line 346, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+      epic-navbar .navbar .nav-container .search-and-country ul#desktop-country-selector {
         padding: 0;
         border: 0 solid #ccc;
         border-radius: 0;
@@ -278,54 +271,54 @@ a {
         height: 0;
         transition: 0.5s ease, border 0s;
         overflow: hidden; }
-        /* line 365, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-        .navbar .nav-container .search-and-country ul#desktop-country-selector li {
+        /* line 358, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+        epic-navbar .navbar .nav-container .search-and-country ul#desktop-country-selector li {
           margin: 1em 0; }
-          /* line 368, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-          .navbar .nav-container .search-and-country ul#desktop-country-selector li a {
+          /* line 361, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+          epic-navbar .navbar .nav-container .search-and-country ul#desktop-country-selector li a {
             text-transform: uppercase; }
-            /* line 371, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-            .navbar .nav-container .search-and-country ul#desktop-country-selector li a span {
+            /* line 364, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+            epic-navbar .navbar .nav-container .search-and-country ul#desktop-country-selector li a span {
               text-transform: none;
               color: #999;
               margin: 0;
               padding: 0;
               top: 0; }
-    /* line 383, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-    .navbar .nav-container .nav-left, .navbar .nav-container .nav-right {
+    /* line 376, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+    epic-navbar .navbar .nav-container .nav-left, epic-navbar .navbar .nav-container .nav-right {
       flex-grow: 4;
       flex-basis: 0;
       list-style: none;
       padding: 0;
       margin: 0; }
-      /* line 390, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-      .navbar .nav-container .nav-left li, .navbar .nav-container .nav-right li {
+      /* line 383, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+      epic-navbar .navbar .nav-container .nav-left li, epic-navbar .navbar .nav-container .nav-right li {
         display: inline-block;
         margin: auto 6px; }
-        /* line 396, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-        .navbar .nav-container .nav-left li.open a img.active-triangle, .navbar .nav-container .nav-right li.open a img.active-triangle {
+        /* line 389, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+        epic-navbar .navbar .nav-container .nav-left li.open a img.active-triangle, epic-navbar .navbar .nav-container .nav-right li.open a img.active-triangle {
           display: block; }
-        /* line 401, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-        .navbar .nav-container .nav-left li.open ul.drop-down, .navbar .nav-container .nav-right li.open ul.drop-down {
+        /* line 394, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+        epic-navbar .navbar .nav-container .nav-left li.open ul.drop-down, epic-navbar .navbar .nav-container .nav-right li.open ul.drop-down {
           height: 223px;
           transition: height 0.5s ease, border 0s;
           border-top-width: 4px;
           z-index: 10; }
-        /* line 409, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-        .navbar .nav-container .nav-left li a, .navbar .nav-container .nav-right li a {
+        /* line 402, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+        epic-navbar .navbar .nav-container .nav-left li a, epic-navbar .navbar .nav-container .nav-right li a {
           font-weight: bold;
           color: #333;
           position: relative;
           overflow: visible; }
-          /* line 415, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-          .navbar .nav-container .nav-left li a img.active-triangle, .navbar .nav-container .nav-right li a img.active-triangle {
+          /* line 408, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+          epic-navbar .navbar .nav-container .nav-left li a img.active-triangle, epic-navbar .navbar .nav-container .nav-right li a img.active-triangle {
             position: absolute;
             top: 51px;
             width: 20px;
             left: calc(50% - 10px);
             display: none; }
-        /* line 424, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-        .navbar .nav-container .nav-left li ul.drop-down, .navbar .nav-container .nav-right li ul.drop-down {
+        /* line 417, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+        epic-navbar .navbar .nav-container .nav-left li ul.drop-down, epic-navbar .navbar .nav-container .nav-right li ul.drop-down {
           height: 0;
           padding: 0;
           position: absolute;
@@ -342,8 +335,8 @@ a {
           transition: height 0.5s ease, border 0s;
           overflow: hidden;
           z-index: 9; }
-          /* line 442, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-          .navbar .nav-container .nav-left li ul.drop-down li, .navbar .nav-container .nav-right li ul.drop-down li {
+          /* line 435, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+          epic-navbar .navbar .nav-container .nav-left li ul.drop-down li, epic-navbar .navbar .nav-container .nav-right li ul.drop-down li {
             margin: 0;
             display: inline-block;
             width: 25%;
@@ -351,83 +344,83 @@ a {
             padding: 0 50px 40px;
             box-sizing: border-box;
             vertical-align: top; }
-            /* line 451, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-            .navbar .nav-container .nav-left li ul.drop-down li a, .navbar .nav-container .nav-right li ul.drop-down li a {
+            /* line 444, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+            epic-navbar .navbar .nav-container .nav-left li ul.drop-down li a, epic-navbar .navbar .nav-container .nav-right li ul.drop-down li a {
               color: #036;
               margin: 0px; }
-              /* line 455, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-              .navbar .nav-container .nav-left li ul.drop-down li a img, .navbar .nav-container .nav-right li ul.drop-down li a img {
+              /* line 448, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+              epic-navbar .navbar .nav-container .nav-left li ul.drop-down li a img, epic-navbar .navbar .nav-container .nav-right li ul.drop-down li a img {
                 width: 100%;
                 display: block;
                 margin: 40px 0; }
-              /* line 461, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-              .navbar .nav-container .nav-left li ul.drop-down li a span, .navbar .nav-container .nav-right li ul.drop-down li a span {
+              /* line 454, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+              epic-navbar .navbar .nav-container .nav-left li ul.drop-down li a span, epic-navbar .navbar .nav-container .nav-right li ul.drop-down li a span {
                 font-size: 14px;
                 letter-spacing: 1px;
                 vertical-align: top;
                 display: block; }
-    /* line 473, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-    .navbar .nav-container .nav-left {
+    /* line 466, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+    epic-navbar .navbar .nav-container .nav-left {
       order: 2;
       text-align: right; }
-    /* line 478, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-    .navbar .nav-container .nav-right {
+    /* line 471, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+    epic-navbar .navbar .nav-container .nav-right {
       order: 4;
       text-align: left; }
-    /* line 483, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-    .navbar .nav-container .logo {
+    /* line 476, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+    epic-navbar .navbar .nav-container .logo {
       order: 3;
       flex-grow: 1;
       margin: 0;
       padding: 0; }
-      /* line 489, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-      .navbar .nav-container .logo a.navbar-logo {
+      /* line 482, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+      epic-navbar .navbar .nav-container .logo a.navbar-logo {
         display: inline-block; }
-        /* line 493, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-        .navbar .nav-container .logo a.navbar-logo .content img {
+        /* line 486, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+        epic-navbar .navbar .nav-container .logo a.navbar-logo .content img {
           width: auto;
           height: 85px;
           transition: height 0.5s ease; }
-    /* line 502, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-    .navbar .nav-container .account-and-cart {
+    /* line 495, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+    epic-navbar .navbar .nav-container .account-and-cart {
       order: 5;
       flex-grow: 3;
       flex-basis: 0;
       text-align: right; }
-      /* line 508, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-      .navbar .nav-container .account-and-cart a {
+      /* line 501, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+      epic-navbar .navbar .nav-container .account-and-cart a {
         display: inline-block;
         margin: 0 10px;
         font-size: 0; }
-        /* line 513, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-        .navbar .nav-container .account-and-cart a#nav-account {
+        /* line 506, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+        epic-navbar .navbar .nav-container .account-and-cart a#nav-account {
           background: url("../img/icn-user.svg") 0 0 no-repeat;
           width: 12px;
           height: 16px; }
-        /* line 519, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-        .navbar .nav-container .account-and-cart a#nav-cart {
+        /* line 512, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+        epic-navbar .navbar .nav-container .account-and-cart a#nav-cart {
           background: url("../img/mini-cart-icon.svg") 0 0 no-repeat;
           width: 16px;
           height: 16px; }
-        /* line 525, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-        .navbar .nav-container .account-and-cart a .item-count {
+        /* line 518, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+        epic-navbar .navbar .nav-container .account-and-cart a .item-count {
           position: relative;
           top: -10px; }
 
 @media screen and (max-width: 991px) {
-  /* line 538, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-  .navbar .nav-container .left-menu {
+  /* line 533, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+  epic-navbar .navbar .nav-container .left-menu {
     display: inline-flex;
     flex-basis: 0;
     flex-grow: 2; }
-  /* line 544, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-  .navbar .nav-container .search-and-country {
+  /* line 539, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+  epic-navbar .navbar .nav-container .search-and-country {
     display: none; }
-  /* line 548, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-  .navbar .nav-container .nav-left, .navbar .nav-container .nav-right {
+  /* line 543, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+  epic-navbar .navbar .nav-container .nav-left, epic-navbar .navbar .nav-container .nav-right {
     display: none; }
-  /* line 555, /Users/alex/Dropbox/Client Media/Zeal Optics/Zeal-Optics-Nav-Bar/css/style.scss */
-  .navbar .nav-container .logo a.navbar-logo .content img {
+  /* line 550, /Users/alex/Dropbox/Client Media/Zeal Optics/epic-navbar/css/style.scss */
+  epic-navbar .navbar .nav-container .logo a.navbar-logo .content img {
     height: 50px; } }
 
 /*# sourceMappingURL=style.css.map */

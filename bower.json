@@ -1,0 +1,29 @@
+{
+  "name": "epic-navbar",
+  "version": "1.0.0",
+  "authors": [
+    "Alex Goodwin <agoodwin@zealoptics.com>"
+  ],
+  "description": "A functional replica of the zealoptics.com nav bar.",
+  "keywords": [
+    "web-component",
+    "web-components",
+    "polymer",
+    "seed"
+  ],
+  "main": "epic-navbar.html",
+  "license": "http://polymer.github.io/LICENSE.txt",
+  "homepage": "https://github.com/<USERNAME>/seed-element/",
+  "ignore": [
+    "/.*",
+    "/test/",
+    "/demo/"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.0.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "web-component-tester": "*"
+  }
+}
