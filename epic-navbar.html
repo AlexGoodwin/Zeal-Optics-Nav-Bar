@@ -419,6 +419,20 @@ Example:
         },
 
         // Element Behavior
+        
+        open: function() {
+            $('.navbar').addClass('slide-active');
+            // close sub-menus
+            $('.slide-menu > li > ul').slideUp();
+            $('.slide-menu > li > a').removeClass('open');
+        },
+        
+        close: function() {
+            $('.navbar').removeClass('slide-active');
+            // close sub-menus
+            $('.slide-menu > li > ul').slideUp();
+            $('.slide-menu > li > a').removeClass('open');
+        }
     });
 
 </script>
