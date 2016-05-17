@@ -8,6 +8,8 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 <link rel="import" href="../polymer/polymer.html">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/f8780814-4f06-4cb3-a33a-a4037a65ed35.css">
 <link rel="stylesheet" href="css/style.css">
 
 <!--
@@ -21,403 +23,402 @@ Example:
 -->
 <dom-module id="epic-navbar">
 
-  <style>
-    :host {
-    }
-  </style>
+    <style>
+        :host {}
+    </style>
 
-  <template>
-    <nav id="newNav" class="navbar" role="navigation">
-        <div class="nav-container">
-            <div class="left-menu">
-                <a href="#" id="openSlideMenu">
-                    <img src="img/icn-mobile-nav.svg">
-                </a>
-            </div>
-            <div class="search-and-country">
-                <!-- search -->
-                <a href="#" id="nav-search">
-                    <img src="img/search_img.svg">
-                    <img class="active-triangle" src="img/menu_active.svg">
-                </a>
-                
-                <form id="input_ZOSearchBoxComponent" method="get" action="//www.zealoptics.com/en/search/">
-                    <input type="text" id="searchInput" placeholder="Search" name="text" maxlength="100">
-                    <a href="#" id="search-delete">X</a>
-                    <input type="submit" value="">
-                </form>
-                
-                <!-- country -->
-                <a href="#" id="nav-country">
-                    <img src="img/country-img.svg">
-                    <span>USA&nbsp;(EN)</span>
-                </a>
-                
-                <ul id="desktop-country-selector">
-                    <li>
-                        <a href="//ca.zealoptics.com/en">
+    <template>
+        <nav id="newNav" class="navbar" role="navigation">
+            <div class="nav-container">
+                <div class="left-menu">
+                    <a href="#" id="openSlideMenu">
+                        <img src="img/icn-mobile-nav.svg">
+                    </a>
+                </div>
+                <div class="search-and-country">
+                    <!-- search -->
+                    <a href="#" id="nav-search">
+                        <img src="img/search_img.svg">
+                        <img class="active-triangle" src="img/menu_active.svg">
+                    </a>
+
+                    <form id="input_ZOSearchBoxComponent" method="get" action="//www.zealoptics.com/en/search/">
+                        <input type="text" id="searchInput" placeholder="Search" name="text" maxlength="100">
+                        <a href="#" id="search-delete">X</a>
+                        <input type="submit" value="">
+                    </form>
+
+                    <!-- country -->
+                    <a href="#" id="nav-country">
+                        <img src="img/country-img.svg">
+                        <span>USA&nbsp;(EN)</span>
+                    </a>
+
+                    <ul id="desktop-country-selector">
+                        <li>
+                            <a href="//ca.zealoptics.com/en">
                         Canada 
                         <span class="language">(English)</span>
                         </a>
-                    </li>
-                    <li>
-                        <a href="//www.zealoptics.com/en">
+                        </li>
+                        <li>
+                            <a href="//www.zealoptics.com/en">
                         United States 
                         <span class="language">(English)</span>
                         </a>
-                    </li>
-                </ul>
-            </div>
-            <ul class="nav-left">
-                <li>
-                    <a href="#" id="nav-shop">
+                        </li>
+                    </ul>
+                </div>
+                <ul class="nav-left">
+                    <li>
+                        <a href="#" id="nav-shop">
                         Shop
                         <img class="active-triangle" src="img/menu_active.svg">
                     </a>
-                    <ul class="drop-down">
-                        <li>
-                            <a href="//www.zealoptics.com/en/shop/sunglasses?all=true">
-                                <img src="img/sunglasses-dropdown.jpg">
-                                <span>Sunglasses</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="//www.zealoptics.com/en/shop/goggles?all=true">
-                                <img src="img/goggles-dropdown.jpg">
-                                <span>Goggles</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="//www.zealoptics.com/en/shop/accessory-lenses">
-                                <img src="img/shop3.png">
-                                <span>Accessory Lenses</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="//www.zealoptics.com/en/shop/accessories">
-                                <img src="img/shop4.png">
-                                <span>Accessories</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#" id="nav-technology">
+                        <ul class="drop-down">
+                            <li>
+                                <a href="//www.zealoptics.com/en/shop/sunglasses?all=true">
+                                    <img src="img/sunglasses-dropdown.jpg">
+                                    <span>Sunglasses</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="//www.zealoptics.com/en/shop/goggles?all=true">
+                                    <img src="img/goggles-dropdown.jpg">
+                                    <span>Goggles</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="//www.zealoptics.com/en/shop/accessory-lenses">
+                                    <img src="img/shop3.png">
+                                    <span>Accessory Lenses</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="//www.zealoptics.com/en/shop/accessories">
+                                    <img src="img/shop4.png">
+                                    <span>Accessories</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" id="nav-technology">
                         Technology
                         <img class="active-triangle" src="img/menu_active.svg">
                     </a>
-                    <ul class="drop-down">
-                        <li>
-                            <a href="//www.zealoptics.com/en/sunglass-technology">
-                                <img src="img/shop1.png">
-                                <span>Sunglass Technology</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="//www.zealoptics.com/en/goggle-tech">
-                                <img src="img/shop2.png">
-                                <span>Goggle Technology</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="//www.zealoptics.com/en/passport-page">
-                                <img src="img/prescription-dropdown.jpg">
-                                <span>Prescription</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <div class="logo">
-                <!-- logo -->
-                <a class="navbar-logo" href='http://www.zealoptics.com/en/'>
-                    <div class="content"><img src="img/brand-logo.svg" alt=""></div>
-                </a>
-            </div>
-            <ul class="nav-right">
-                <li>
-                    <a href="#" id="nav-our-story">
+                        <ul class="drop-down">
+                            <li>
+                                <a href="//www.zealoptics.com/en/sunglass-technology">
+                                    <img src="img/shop1.png">
+                                    <span>Sunglass Technology</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="//www.zealoptics.com/en/goggle-tech">
+                                    <img src="img/shop2.png">
+                                    <span>Goggle Technology</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="//www.zealoptics.com/en/passport-page">
+                                    <img src="img/prescription-dropdown.jpg">
+                                    <span>Prescription</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="logo">
+                    <!-- logo -->
+                    <a class="navbar-logo" href='http://www.zealoptics.com/en/'>
+                        <div class="content"><img src="img/brand-logo.svg" alt=""></div>
+                    </a>
+                </div>
+                <ul class="nav-right">
+                    <li>
+                        <a href="#" id="nav-our-story">
                         Our Story
                         <img class="active-triangle" src="img/menu_active.svg">
                     </a>
-                    <ul class="drop-down">
+                        <ul class="drop-down">
+                            <li>
+                                <a href="//www.zealoptics.com/en/who-we-are">
+                                    <img src="img/whoweare-dropdown.jpg">
+                                    <span>Who We Are</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="//www.zealoptics.com/en/ambassador-page">
+                                    <img src="img/ambassadors-dropdown.jpg">
+                                    <span>Ambassadors</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="//www.zealoptics.com/en/community-page">
+                                    <img src="img/community-dropdown.jpg">
+                                    <span>Community</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" id="nav-explore-more">
+                        Explore More
+                        <img class="active-triangle" src="img/menu_active.svg">
+                    </a>
+                        <ul class="drop-down">
+                            <li>
+                                <a href="//www.zealoptics.com/en/who-we-are">
+                                    <img src="img/blog-dropdown.jpg">
+                                    <span>Blog</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="//www.zealoptics.com/en/ambassador-page">
+                                    <img src="img/events-dropdown.jpg">
+                                    <span>Events</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="//www.zealhd.com">
+                                    <img src="img/zealhd-dropdown.jpg">
+                                    <span>ZealHD.com</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="account-and-cart">
+                    <a href="//www.zealoptics.com/en/login" id="nav-account" title="Login/My Account">User</a>
+                    <a href="//www.zealoptics.com/en/cart" id="nav-cart" title="My Cart">Cart</a>
+                </div>
+            </div>
+            <ul class="slide-menu">
+                <li>
+                    <form method="get" action="//www.zealoptics.com/en/search/">
+                        <input type="search" placeholder="Search" name="text">
+                        <input type="submit">
+                    </form>
+                </li>
+                <li>
+                    <a href="#">Shop</a>
+                    <ul>
                         <li>
-                            <a href="//www.zealoptics.com/en/who-we-are">
-                                <img src="img/whoweare-dropdown.jpg">
-                                <span>Who We Are</span>
-                            </a>
+                            <a href="//www.zealoptics.com/en/shop/sunglasses?all=true">Sunglasses</a>
                         </li>
                         <li>
-                            <a href="//www.zealoptics.com/en/ambassador-page">
-                                <img src="img/ambassadors-dropdown.jpg">
-                                <span>Ambassadors</span>
-                            </a>
+                            <a href="//www.zealoptics.com/en/shop/goggles?all=true">Goggles</a>
                         </li>
                         <li>
-                            <a href="//www.zealoptics.com/en/community-page">
-                                <img src="img/community-dropdown.jpg">
-                                <span>Community</span>
-                            </a>
+                            <a href="//www.zealoptics.com/en/shop/accessory-lenses">Accessory Lenses</a>
+                        </li>
+                        <li>
+                            <a href="//www.zealoptics.com/en/shop/accessories">Accessories</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#" id="nav-explore-more">
-                        Explore More
-                        <img class="active-triangle" src="img/menu_active.svg">
+                    <a href="#">Technology</a>
+                    <ul>
+                        <li>
+                            <a href="//www.zealoptics.com/en/sunglass-technology">Sunglass Technology</a>
+                        </li>
+                        <li>
+                            <a href="//www.zealoptics.com/en/goggle-tech">Goggle Technology</a>
+                        </li>
+                        <li>
+                            <a href="//www.zealoptics.com/en/passport-page">Prescription</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Our Story</a>
+                    <ul>
+                        <li>
+                            <a href="//www.zealoptics.com/en/who-we-are">Who We Are</a>
+                        </li>
+                        <li>
+                            <a href="//www.zealoptics.com/en/ambassador-page">Ambassadors</a>
+                        </li>
+                        <li>
+                            <a href="//www.zealoptics.com/en/community-page">Community</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Explore More</a>
+                    <ul>
+                        <li>
+                            <a href="//blog.zealoptics.com/">Blog</a>
+                        </li>
+                        <li>
+                            <a href="//www.zealoptics.com/en/events">Events</a>
+                        </li>
+                        <li>
+                            <a href="//www.zealhd.com/">ZealHD.com</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="//www.zealoptics.com/en/login" class="no-arrow">Login</a>
+                </li>
+                <li class="country">
+                    <a href="#">
+                        <img src="img/country-img.svg">
+                        <span>USA &nbsp;(EN)</span>
                     </a>
-                    <ul class="drop-down">
+                    <ul>
                         <li>
-                            <a href="//www.zealoptics.com/en/who-we-are">
-                                <img src="img/blog-dropdown.jpg">
-                                <span>Blog</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="//www.zealoptics.com/en/ambassador-page">
-                                <img src="img/events-dropdown.jpg">
-                                <span>Events</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="//www.zealhd.com">
-                                <img src="img/zealhd-dropdown.jpg">
-                                <span>ZealHD.com</span>
-                            </a>
+                            <a href="//ca.zealoptics.com/en">CANADA (English)</a>
+                            <a href="//www.zealoptics.com/en">UNITED STATES (English)</a>
                         </li>
                     </ul>
                 </li>
             </ul>
-            <div class="account-and-cart">
-                <a href="//www.zealoptics.com/en/login" id="nav-account" title="Login/My Account">User</a>
-                <a href="//www.zealoptics.com/en/cart" id="nav-cart" title="My Cart">Cart</a>
-            </div>
-        </div>
-        <ul class="slide-menu">
-            <li>
-                <form method="get" action="//www.zealoptics.com/en/search/">
-                    <input type="search" placeholder="Search" name="text">
-                    <input type="submit">
-                </form>
-            </li>
-            <li>
-                <a href="#">Shop</a>
-                <ul>
-                    <li>
-                        <a href="//www.zealoptics.com/en/shop/sunglasses?all=true">Sunglasses</a>
-                    </li>
-                    <li>
-                        <a href="//www.zealoptics.com/en/shop/goggles?all=true">Goggles</a>
-                    </li>
-                    <li>
-                        <a href="//www.zealoptics.com/en/shop/accessory-lenses">Accessory Lenses</a>
-                    </li>
-                    <li>
-                        <a href="//www.zealoptics.com/en/shop/accessories">Accessories</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">Technology</a>
-                <ul>
-                    <li>
-                        <a href="//www.zealoptics.com/en/sunglass-technology">Sunglass Technology</a>
-                    </li>
-                    <li>
-                        <a href="//www.zealoptics.com/en/goggle-tech">Goggle Technology</a>
-                    </li>
-                    <li>
-                        <a href="//www.zealoptics.com/en/passport-page">Prescription</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">Our Story</a>
-                <ul>
-                    <li>
-                        <a href="//www.zealoptics.com/en/who-we-are">Who We Are</a>
-                    </li>
-                    <li>
-                        <a href="//www.zealoptics.com/en/ambassador-page">Ambassadors</a>
-                    </li>
-                    <li>
-                        <a href="//www.zealoptics.com/en/community-page">Community</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">Explore More</a>
-                <ul>
-                    <li>
-                        <a href="//blog.zealoptics.com/">Blog</a>
-                    </li>
-                    <li>
-                        <a href="//www.zealoptics.com/en/events">Events</a>
-                    </li>
-                    <li>
-                        <a href="//www.zealhd.com/">ZealHD.com</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="//www.zealoptics.com/en/login" class="no-arrow">Login</a>
-            </li>
-            <li class="country">
-                <a href="#">
-                    <img src="img/country-img.svg">
-                    <span>USA &nbsp;(EN)</span>
-                </a>
-                <ul>
-                    <li>
-                        <a href="//ca.zealoptics.com/en">CANADA (English)</a>
-                        <a href="//www.zealoptics.com/en">UNITED STATES (English)</a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
-  </template>
+        </nav>
+    </template>
 
 </dom-module>
 
-<script src="js/jquery-2.1.4.min.js"></script>
+<script src="../jquery/dist/jquery.min.js"></script>
 <script>
+    Polymer({
 
-  Polymer({
+        is: 'epic-navbar',
 
-    is: 'epic-navbar',
+        properties: {
+            // none for now
+        },
 
-    properties: {
-        // none for now
-    },
+        // Element Lifecycle
 
-    // Element Lifecycle
+        ready: function() {
+            // `ready` is called after all elements have been configured, but
+            // propagates bottom-up. This element's children are ready, but parents
+            // are not.
+            //
+            // This is the point where you should make modifications to the DOM (when
+            // necessary), or kick off any processes the element wants to perform.
 
-    ready: function() {
-      // `ready` is called after all elements have been configured, but
-      // propagates bottom-up. This element's children are ready, but parents
-      // are not.
-      //
-      // This is the point where you should make modifications to the DOM (when
-      // necessary), or kick off any processes the element wants to perform.
+            // close side bar on window resize
+            $(window)
+                .on('resize', function() {
+                    $('.navbar').removeClass('slide-active');
+                })
+                .on('scroll', function() {
+                    /*
+                        Scroll logic for collapsing top nav.
+                        Used to watch for scrollTop() > $('.nav-container').height(), but this introduces a weird infinitely looping bug when the window.height()
+                    */
+                    if ($(window).width() > 991 && $(window).scrollTop() > 0) {
+                        $('.nav-container').addClass('fixed');
+                    }
+                    else {
+                        $('.nav-container').removeClass('fixed');
+                    }
+                });
 
-        // close side bar on window resize
-        $(window)
-            .on('resize', function() {
-            $('.navbar').removeClass('slide-active');
-        })
-            .on('scroll', function() {
-                if( $(window).width() > 991 && $(window).scrollTop() > $('.nav-container').height() ) {
-                    $('.nav-container').addClass('fixed');
-                }
-                else {
-                    $('.nav-container').removeClass('fixed');
-                }
-        });
+            // top-level desktop nav
+            $('.nav-container > ul > li > a').click(function(e) {
+                e.preventDefault();
 
-        // top-level desktop nav
-        $('.nav-container > ul > li > a').click(function(e) {
-            e.preventDefault();
-
-            // close search
-            $('#nav-search').parent().removeClass('open-search').removeClass('open-country');
-
-            // open this drop-down
-            if($(this).parent().hasClass('open')) {
-                $(this).parent().removeClass('open');
-            }
-            else{
-                // close other drop-downs
-                $('.nav-container > ul > li').removeClass('open');
+                // close search
+                $('#nav-search').parent().removeClass('open-search').removeClass('open-country');
 
                 // open this drop-down
-                $(this).parent().addClass('open');
-            }
-        });
+                if ($(this).parent().hasClass('open')) {
+                    $(this).parent().removeClass('open');
+                } else {
+                    // close other drop-downs
+                    $('.nav-container > ul > li').removeClass('open');
 
-        // open side menu
-        $('#openSlideMenu').click(function(e) {
-            e.preventDefault();
+                    // open this drop-down
+                    $(this).parent().addClass('open');
+                }
+            });
 
-            $('.navbar').toggleClass('slide-active');
+            // open side menu
+            $('#openSlideMenu').click(function(e) {
+                e.preventDefault();
 
-            // close sub-menus
-            $('.slide-menu > li > ul').slideUp();
-            $('.slide-menu > li > a').removeClass('open');
-        });
+                $('.navbar').toggleClass('slide-active');
 
-        // side menu sub-menus
-        $('.slide-menu > li > a').click(function(e) {
-            e.preventDefault();
+                // close sub-menus
+                $('.slide-menu > li > ul').slideUp();
+                $('.slide-menu > li > a').removeClass('open');
+            });
 
-            if ($(this).hasClass('open')) {
-                $(this).siblings('ul').slideUp();
-                $(this).removeClass('open');
-            }
-            else {
-                $(this).siblings('ul').slideDown();
-                $(this).addClass('open');
-            }
+            // side menu sub-menus
+            $('.slide-menu > li > a').click(function(e) {
+                e.preventDefault();
 
-            // close other sub-menus
-            $(this).parent().siblings().children('ul').slideUp();
-            $(this).parent().siblings().children('a').removeClass('open');
-        });
+                if ($(this).hasClass('open')) {
+                    $(this).siblings('ul').slideUp();
+                    $(this).removeClass('open');
+                } else {
+                    $(this).siblings('ul').slideDown();
+                    $(this).addClass('open');
+                }
 
-        // desktop search
-        $('#nav-search').click(function(e) {
-            e.preventDefault();
+                // close other sub-menus
+                $(this).parent().siblings().children('ul').slideUp();
+                $(this).parent().siblings().children('a').removeClass('open');
+            });
 
-            // close menu sub-menus
-            $('.nav-container > ul > li').removeClass('open');
+            // desktop search
+            $('#nav-search').click(function(e) {
+                e.preventDefault();
 
-            $(this).parent().toggleClass('open-search').removeClass('open-country');
+                // close menu sub-menus
+                $('.nav-container > ul > li').removeClass('open');
 
-            if($(this).parent().hasClass('open-search')) {
-                $('#searchInput').focus();
-            }
-            else{
-                $('#searchInput').blur();
-            }
-        });
+                $(this).parent().toggleClass('open-search').removeClass('open-country');
 
-        // desktop country selector
-        $('#nav-country').click(function(e) {
-            e.preventDefault();
-            $('.nav-container > ul > li').removeClass('open');
-            $(this).parent().toggleClass('open-country').removeClass('open-search');
-        });
+                if ($(this).parent().hasClass('open-search')) {
+                    $('#searchInput').focus();
+                } else {
+                    $('#searchInput').blur();
+                }
+            });
 
-        // bind input clear x
-        $('a#search-delete').click(function(e) {
-            e.preventDefault();
+            // desktop country selector
+            $('#nav-country').click(function(e) {
+                e.preventDefault();
+                $('.nav-container > ul > li').removeClass('open');
+                $(this).parent().toggleClass('open-country').removeClass('open-search');
+            });
 
-            $('#input_ZOSearchBoxComponent #searchInput').val('').focus();
-        });
-    },
+            // bind input clear x
+            $('a#search-delete').click(function(e) {
+                e.preventDefault();
 
-    attached: function() {
-      // `attached` fires once the element and its parents have been inserted
-      // into a document.
-      //
-      // This is a good place to perform any work related to your element's
-      // visual state or active behavior (measuring sizes, beginning animations,
-      // loading resources, etc).
-    },
+                $('#input_ZOSearchBoxComponent #searchInput').val('').focus();
+            });
+        },
 
-    detached: function() {
-      // The analog to `attached`, `detached` fires when the element has been
-      // removed from a document.
-      //
-      // Use this to clean up anything you did in `attached`.
-        $('.nav-container > ul > li > a').off('click');
-        $('#openSlideMenu').off('click');
-        $('.slide-menu > li > a').off('click');
-        $('#nav-search').off('click');
-        $('a#search-delete').off('click');
-    },
+        attached: function() {
+            // `attached` fires once the element and its parents have been inserted
+            // into a document.
+            //
+            // This is a good place to perform any work related to your element's
+            // visual state or active behavior (measuring sizes, beginning animations,
+            // loading resources, etc).
+        },
 
-    // Element Behavior
-  });
+        detached: function() {
+            // The analog to `attached`, `detached` fires when the element has been
+            // removed from a document.
+            //
+            // Use this to clean up anything you did in `attached`.
+            $('.nav-container > ul > li > a').off('click');
+            $('#openSlideMenu').off('click');
+            $('.slide-menu > li > a').off('click');
+            $('#nav-search').off('click');
+            $('a#search-delete').off('click');
+        },
+
+        // Element Behavior
+    });
 
 </script>

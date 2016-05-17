@@ -3,11 +3,6 @@ $mediumGrey: #666;
 $darkGrey: #333;
 $navy: #036;
 
-@import 'reset.css';
-
-// note webtype.com restricts type imports by domain, so you may get local errors
-@import 'f8780814-4f06-4cb3-a33a-a4037a65ed35.css';
-
 epic-navbar {
     display: block;
     box-sizing: border-box;
@@ -452,9 +447,10 @@ epic-navbar {
                                 margin: 0px;
 
                                 img {
-                                    width: 100%;
+                                    max-width: 100%;
                                     display: block;
-                                    margin: 40px 0;
+                                    margin: 30px auto;
+                                    max-height: 135px;
                                 }
 
                                 span {
