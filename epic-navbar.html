@@ -9,6 +9,7 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 <link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="include-jquery.html" />
 
 <!--
 A functional clone of the zealoptics.com navbar
@@ -834,7 +835,6 @@ Example:
 
 </dom-module>
 
-<script src="../jquery/dist/jquery.min.js"></script>
 <script>
     Polymer({
 
@@ -844,16 +844,7 @@ Example:
             // none for now
         },
 
-        // Element Lifecycle
-
         ready: function() {
-            // `ready` is called after all elements have been configured, but
-            // propagates bottom-up. This element's children are ready, but parents
-            // are not.
-            //
-            // This is the point where you should make modifications to the DOM (when
-            // necessary), or kick off any processes the element wants to perform.
-
             // close side bar on window resize
             $(window)
                 .on('resize', function() {
