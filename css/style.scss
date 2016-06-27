@@ -32,6 +32,7 @@ $navy: #036;
             .nav-container {
                 left: 230px;
                 position: fixed;
+                top: 0;
             }
             ul.slide-menu {
                 left: 0;
@@ -170,6 +171,7 @@ $navy: #036;
 
             &.fixed {
                 position: fixed;
+                top: 0;
 
                 .logo {
                     a.navbar-logo {

@@ -56,6 +56,7 @@ Example:
         :host .navbar.slide-active .nav-container {
             left: 230px;
             position: fixed;
+            top: 0;
         }
 
         :host .navbar.slide-active ul.slide-menu {
@@ -201,6 +202,7 @@ Example:
 
         :host .navbar .nav-container.fixed {
             position: fixed;
+            top: 0;
         }
 
         :host .navbar .nav-container.fixed .logo a.navbar-logo .content img {
@@ -853,7 +855,7 @@ Example:
                 .on('scroll', function() {
                     /*
                         Scroll logic for collapsing top nav.
-                        Used to watch for scrollTop() > $('.nav-container').height(), but this introduces a weird infinitely looping bug when the window.height()
+                        Used to watch for scrollTop() > $('.nav-container').height(), but this introduces a weird infinitely looping bug
                     */
                     if ($(window).width() > 991 && $(window).scrollTop() > 0) {
                         $('.nav-container').addClass('fixed');
@@ -940,20 +942,9 @@ Example:
             });
         },
 
-        attached: function() {
-            // `attached` fires once the element and its parents have been inserted
-            // into a document.
-            //
-            // This is a good place to perform any work related to your element's
-            // visual state or active behavior (measuring sizes, beginning animations,
-            // loading resources, etc).
-        },
+        attached: function() {},
 
         detached: function() {
-            // The analog to `attached`, `detached` fires when the element has been
-            // removed from a document.
-            //
-            // Use this to clean up anything you did in `attached`.
             $('.nav-container > ul > li > a').off('click');
             $('#openSlideMenu').off('click');
             $('.slide-menu > li > a').off('click');
