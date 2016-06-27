@@ -23,6 +23,7 @@ $navy: #036;
         text-align: center;
         font-size: 14px;
         width: 100%;
+        z-index: 1;
 
         &.slide-active {
             overflow-x: hidden;
@@ -33,9 +34,11 @@ $navy: #036;
                 left: 230px;
                 position: fixed;
                 top: 0;
+                z-index: 1;
             }
             ul.slide-menu {
                 left: 0;
+                z-index: 1;
             }
         }
 
@@ -53,6 +56,7 @@ $navy: #036;
             position: fixed;
             border-right: 1px solid $lightGrey;
             height: 2500px;
+            z-index: 1;
 
             & > li {
                 display: block;
@@ -172,6 +176,7 @@ $navy: #036;
             &.fixed {
                 position: fixed;
                 top: 0;
+                z-index: 1;
 
                 .logo {
                     a.navbar-logo {

@@ -13,7 +13,8 @@
     padding: 0;
     text-align: center;
     font-size: 14px;
-    width: 100%; }
+    width: 100%;
+    z-index: 1; }
     :host .navbar.slide-active {
       overflow-x: hidden;
       overflow-y: visible;
@@ -21,9 +22,11 @@
       :host .navbar.slide-active .nav-container {
         left: 230px;
         position: fixed;
-        top: 0; }
+        top: 0;
+        z-index: 1; }
       :host .navbar.slide-active ul.slide-menu {
-        left: 0; }
+        left: 0;
+        z-index: 1; }
     :host .navbar ul.slide-menu {
       width: 230px;
       left: -230px;
@@ -37,7 +40,8 @@
       background: white;
       position: fixed;
       border-right: 1px solid #ccc;
-      height: 2500px; }
+      height: 2500px;
+      z-index: 1; }
       :host .navbar ul.slide-menu > li {
         display: block;
         padding: 0;
@@ -125,7 +129,8 @@
       left: 0; }
       :host .navbar .nav-container.fixed {
         position: fixed;
-        top: 0; }
+        top: 0;
+        z-index: 1; }
         :host .navbar .nav-container.fixed .logo a.navbar-logo .content img {
           height: 56px;
           transition: height .5s ease; }
