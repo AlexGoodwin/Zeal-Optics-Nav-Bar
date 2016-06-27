@@ -3,10 +3,10 @@ $mediumGrey: #666;
 $darkGrey: #333;
 $navy: #036;
 
-epic-navbar {
+:host {
     display: block;
     box-sizing: border-box;
-    
+
     * {
         box-sizing: inherit;
     }
@@ -138,7 +138,7 @@ epic-navbar {
                         font-size: .8em;
 
                         &:first-of-type {
-                            a { 
+                            a {
                                 padding-top: 0;
                             }
                         }
@@ -531,7 +531,7 @@ epic-navbar {
 @media screen and (max-width: 991px) {
     epic-navbar {
         .navbar {
-            .nav-container {   
+            .nav-container {
                 .left-menu {
                     display: inline-flex;
                     flex-basis: 0;

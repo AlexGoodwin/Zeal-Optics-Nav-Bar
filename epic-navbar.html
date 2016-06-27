@@ -1,3 +1,4 @@
+<!doctype html>
 <!--
 @license
 Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
@@ -24,7 +25,562 @@ Example:
 <dom-module id="epic-navbar">
 
     <style>
-        :host {}
+        :host {
+            display: block;
+            box-sizing: border-box;
+        }
+
+        :host * {
+            box-sizing: inherit;
+        }
+
+        :host a {
+            font-family: "Interstate", sans-serif;
+            color: #666;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        :host .navbar {
+            background: transparent;
+            padding: 0;
+            text-align: center;
+            font-size: 14px;
+            width: 100%;
+        }
+
+        :host .navbar.slide-active {
+            overflow-x: hidden;
+            overflow-y: visible;
+            height: 64px;
+        }
+
+        :host .navbar.slide-active .nav-container {
+            left: 230px;
+            position: fixed;
+        }
+
+        :host .navbar.slide-active ul.slide-menu {
+            left: 0;
+        }
+
+        :host .navbar ul.slide-menu {
+            width: 230px;
+            left: -230px;
+            top: 0;
+            transition: .5s ease;
+            overflow: hidden;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+            background: white;
+            position: fixed;
+            border-right: 1px solid #ccc;
+            height: 2500px;
+        }
+
+        :host .navbar ul.slide-menu> li {
+            display: block;
+            padding: 0;
+            border-bottom: 1px solid #ccc;
+        }
+
+        :host .navbar ul.slide-menu> li:first-of-type {
+            padding: 18.5px 30px;
+        }
+
+        :host .navbar ul.slide-menu> li.country a img {
+            width: 30px;
+        }
+
+        :host .navbar ul.slide-menu> li form {
+            line-height: 24px;
+            position: relative;
+        }
+
+        :host .navbar ul.slide-menu> li form input[type=text],
+        :host .navbar ul.slide-menu> li form input[type=search] {
+            border: none;
+            border-bottom: 1px solid #333;
+            padding: .5em 30px .5em .5em;
+            font-style: italic;
+            font-size: 14px;
+            border-radius: 0;
+            -webkit-appearance: none;
+            width: 100%;
+        }
+
+        :host .navbar ul.slide-menu> li form input[type=text]:focus,
+        :host .navbar ul.slide-menu> li form input[type=search]:focus {
+            outline: 0;
+        }
+
+        :host .navbar ul.slide-menu> li form input[type=submit] {
+            background: url("../img/search_img.svg") top left no-repeat;
+            text-indent: -9999px;
+            border: 0 none;
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            top: 8px;
+            right: 8px;
+        }
+
+        :host .navbar ul.slide-menu> li form input[type=submit]:hover {
+            cursor: pointer;
+        }
+
+        :host .navbar ul.slide-menu> li> a {
+            display: block;
+            color: #333;
+            background: url("../img/accordion-arrow-down.gif") 195px center no-repeat;
+            padding: 20px 30px;
+        }
+
+        :host .navbar ul.slide-menu> li> a.open {
+            background-image: url("../img/accordion-arrow-up.gif");
+        }
+
+        :host .navbar ul.slide-menu> li> a.no-arrow {
+            background: none;
+        }
+
+        :host .navbar ul.slide-menu> li> a span {
+            vertical-align: top;
+            top: 2px;
+            left: 5px;
+            position: relative;
+        }
+
+        :host .navbar ul.slide-menu> li ul {
+            display: none;
+            list-style: none;
+            padding: 0 30px;
+        }
+
+        :host .navbar ul.slide-menu> li ul li {
+            display: block;
+            padding: 0;
+            font-size: .8em;
+        }
+
+        :host .navbar ul.slide-menu> li ul li:first-of-type a {
+            padding-top: 0;
+        }
+
+        :host .navbar ul.slide-menu> li ul li a {
+            color: #333;
+            padding: 1em 2em;
+            display: block;
+            line-height: 1.5em;
+        }
+
+        :host .navbar .nav-container {
+            background: white;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-flex-direction: row;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -webkit-flex-wrap: nowrap;
+            -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+            -webkit-justify-content: space-between;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            margin: 0;
+            padding: 8px 10px;
+            position: relative;
+            width: 100%;
+            transition: left .5s ease;
+            left: 0;
+        }
+
+        :host .navbar .nav-container.fixed {
+            position: fixed;
+        }
+
+        :host .navbar .nav-container.fixed .logo a.navbar-logo .content img {
+            height: 56px;
+            transition: height .5s ease;
+        }
+
+        :host .navbar .nav-container.fixed .search-and-country form#input_ZOSearchBoxComponent {
+            top: 75px;
+        }
+
+        :host .navbar .nav-container.fixed .nav-left li a img.active-triangle,
+        :host .navbar .nav-container.fixed .nav-right li a img.active-triangle {
+            top: 36px;
+        }
+
+        :host .navbar .nav-container.fixed .nav-left li ul.drop-down,
+        :host .navbar .nav-container.fixed .nav-right li ul.drop-down {
+            top: 75px;
+        }
+
+        :host .navbar .nav-container .left-menu {
+            display: none;
+        }
+
+        :host .navbar .nav-container .left-menu a#openSlideMenu img {
+            width: 24px;
+        }
+
+        :host .navbar .nav-container .search-and-country {
+            -webkit-order: 1;
+            -ms-flex-order: 1;
+            order: 1;
+            -webkit-flex-grow: 3;
+            -ms-flex-positive: 3;
+            flex-grow: 3;
+            -webkit-flex-basis: 0;
+            -ms-flex-preferred-size: 0;
+            flex-basis: 0;
+            text-align: left;
+        }
+
+        :host .navbar .nav-container .search-and-country.open-search form#input_ZOSearchBoxComponent {
+            height: 80px;
+            transition: height .5s ease, padding .5s ease, border 0s;
+            padding: .5em 1em;
+            border-top-width: 4px;
+            z-index: 10;
+        }
+
+        :host .navbar .nav-container .search-and-country.open-search a img.active-triangle {
+            display: block;
+            width: 20px;
+        }
+
+        :host .navbar .nav-container .search-and-country.open-country ul#desktop-country-selector {
+            height: 100px;
+            padding: 1em;
+            border-width: 1px;
+            transition: height .5s ease, border 0s, padding-left 0s, padding-right 0s;
+            z-index: 11;
+        }
+
+        :host .navbar .nav-container .search-and-country.open-country a#nav-country {
+            background: url("../img/country-selector-arrow.png") right 4px no-repeat;
+            padding-right: 4px;
+        }
+
+        :host .navbar .nav-container .search-and-country a {
+            display: inline-block;
+            margin: 0 9px;
+            padding: 0;
+            font-size: 12px;
+            color: #666;
+            padding-right: 0;
+            font-weight: 500;
+        }
+
+        :host .navbar .nav-container .search-and-country a#nav-search img {
+            width: 16px;
+        }
+
+        :host .navbar .nav-container .search-and-country a#nav-country img {
+            width: 25px;
+        }
+
+        :host .navbar .nav-container .search-and-country a img.active-triangle {
+            position: absolute;
+            bottom: 0;
+            display: none;
+        }
+
+        :host .navbar .nav-container .search-and-country a span {
+            vertical-align: top;
+            letter-spacing: 1px;
+            position: relative;
+            top: 2px;
+            padding: 2px 5px;
+        }
+
+        :host .navbar .nav-container .search-and-country form#input_ZOSearchBoxComponent {
+            height: 0;
+            overflow: hidden;
+            box-sizing: border-box;
+            transition: height .5s ease, padding .5s ease, border 0s;
+            position: absolute;
+            top: 103px;
+            left: 0;
+            width: 100%;
+            background: white;
+            border-top: 0px solid #ccc;
+            border-radius: 0;
+            padding: 0 1em;
+            font-size: 2em;
+            z-index: 9;
+        }
+
+        :host .navbar .nav-container .search-and-country form#input_ZOSearchBoxComponent input[type=search],
+        :host .navbar .nav-container .search-and-country form#input_ZOSearchBoxComponent input[type=text] {
+            text-transform: uppercase;
+            width: 100%;
+            float: left;
+            padding: 0 0 .5em;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            color: #333;
+            font-weight: bold;
+            font-size: 1em;
+        }
+
+        :host .navbar .nav-container .search-and-country form#input_ZOSearchBoxComponent input[type=search]:focus,
+        :host .navbar .nav-container .search-and-country form#input_ZOSearchBoxComponent input[type=text]:focus {
+            outline: 0;
+        }
+
+        :host .navbar .nav-container .search-and-country form#input_ZOSearchBoxComponent input[type=submit] {
+            width: 0;
+            float: left;
+            border: none;
+            padding: 0;
+        }
+
+        :host .navbar .nav-container .search-and-country form#input_ZOSearchBoxComponent a#search-delete {
+            border: none;
+            background: url(../img/btn-search-close.gif);
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            right: 30px;
+            top: 24px;
+            text-indent: -9999px;
+        }
+
+        :host .navbar .nav-container .search-and-country ul#desktop-country-selector {
+            padding: 0;
+            border: 0 solid #ccc;
+            border-radius: 0;
+            top: 68px;
+            position: absolute;
+            left: 56px;
+            background: white;
+            height: 0;
+            transition: .5s ease, border 0s;
+            overflow: hidden;
+        }
+
+        :host .navbar .nav-container .search-and-country ul#desktop-country-selector li {
+            margin: 1em 0;
+        }
+
+        :host .navbar .nav-container .search-and-country ul#desktop-country-selector li a {
+            text-transform: uppercase;
+        }
+
+        :host .navbar .nav-container .search-and-country ul#desktop-country-selector li a span {
+            text-transform: none;
+            color: #999;
+            margin: 0;
+            padding: 0;
+            top: 0;
+        }
+
+        :host .navbar .nav-container .nav-left,
+        :host .navbar .nav-container .nav-right {
+            -webkit-flex-grow: 4;
+            -ms-flex-positive: 4;
+            flex-grow: 4;
+            -webkit-flex-basis: 0;
+            -ms-flex-preferred-size: 0;
+            flex-basis: 0;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        :host .navbar .nav-container .nav-left li,
+        :host .navbar .nav-container .nav-right li {
+            display: inline-block;
+            margin: auto 6px;
+        }
+
+        :host .navbar .nav-container .nav-left li.open a img.active-triangle,
+        :host .navbar .nav-container .nav-right li.open a img.active-triangle {
+            display: block;
+        }
+
+        :host .navbar .nav-container .nav-left li.open ul.drop-down,
+        :host .navbar .nav-container .nav-right li.open ul.drop-down {
+            height: 223px;
+            transition: height .5s ease, border 0s;
+            border-top-width: 4px;
+            z-index: 10;
+        }
+
+        :host .navbar .nav-container .nav-left li a,
+        :host .navbar .nav-container .nav-right li a {
+            font-weight: bold;
+            color: #333;
+            position: relative;
+            overflow: visible;
+        }
+
+        :host .navbar .nav-container .nav-left li a img.active-triangle,
+        :host .navbar .nav-container .nav-right li a img.active-triangle {
+            position: absolute;
+            top: 51px;
+            width: 20px;
+            left: calc(50% - 10px);
+            display: none;
+        }
+
+        :host .navbar .nav-container .nav-left li ul.drop-down,
+        :host .navbar .nav-container .nav-right li ul.drop-down {
+            height: 0;
+            padding: 0;
+            position: absolute;
+            left: 0;
+            top: 103px;
+            list-style: none;
+            width: 100%;
+            margin: 0;
+            background: white;
+            text-align: center;
+            font-size: 0;
+            border-top: 0px solid #ccc;
+            border-radius: 0;
+            transition: height .5s ease, border 0s;
+            overflow: hidden;
+            z-index: 9;
+        }
+
+        :host .navbar .nav-container .nav-left li ul.drop-down li,
+        :host .navbar .nav-container .nav-right li ul.drop-down li {
+            margin: 0;
+            display: inline-block;
+            width: 25%;
+            font-size: 1rem;
+            padding: 0 50px 40px;
+            box-sizing: border-box;
+            vertical-align: top;
+        }
+
+        :host .navbar .nav-container .nav-left li ul.drop-down li a,
+        :host .navbar .nav-container .nav-right li ul.drop-down li a {
+            color: #036;
+            margin: 0px;
+        }
+
+        :host .navbar .nav-container .nav-left li ul.drop-down li a img,
+        :host .navbar .nav-container .nav-right li ul.drop-down li a img {
+            max-width: 100%;
+            display: block;
+            margin: 30px auto;
+            max-height: 135px;
+        }
+
+        :host .navbar .nav-container .nav-left li ul.drop-down li a span,
+        :host .navbar .nav-container .nav-right li ul.drop-down li a span {
+            font-size: 14px;
+            letter-spacing: 1px;
+            vertical-align: top;
+            display: block;
+        }
+
+        :host .navbar .nav-container .nav-left {
+            -webkit-order: 2;
+            -ms-flex-order: 2;
+            order: 2;
+            text-align: right;
+        }
+
+        :host .navbar .nav-container .nav-right {
+            -webkit-order: 4;
+            -ms-flex-order: 4;
+            order: 4;
+            text-align: left;
+        }
+
+        :host .navbar .nav-container .logo {
+            -webkit-order: 3;
+            -ms-flex-order: 3;
+            order: 3;
+            -webkit-flex-grow: 1;
+            -ms-flex-positive: 1;
+            flex-grow: 1;
+            margin: 0;
+            padding: 0;
+        }
+
+        :host .navbar .nav-container .logo a.navbar-logo {
+            display: inline-block;
+        }
+
+        :host .navbar .nav-container .logo a.navbar-logo .content img {
+            width: auto;
+            height: 85px;
+            transition: height .5s ease;
+        }
+
+        :host .navbar .nav-container .account-and-cart {
+            -webkit-order: 5;
+            -ms-flex-order: 5;
+            order: 5;
+            -webkit-flex-grow: 3;
+            -ms-flex-positive: 3;
+            flex-grow: 3;
+            -webkit-flex-basis: 0;
+            -ms-flex-preferred-size: 0;
+            flex-basis: 0;
+            text-align: right;
+        }
+
+        :host .navbar .nav-container .account-and-cart a {
+            display: inline-block;
+            margin: 0 10px;
+            font-size: 0;
+        }
+
+        :host .navbar .nav-container .account-and-cart a#nav-account {
+            background: url("../img/icn-user.svg") 0 0 no-repeat;
+            width: 12px;
+            height: 16px;
+        }
+
+        :host .navbar .nav-container .account-and-cart a#nav-cart {
+            background: url("../img/mini-cart-icon.svg") 0 0 no-repeat;
+            width: 16px;
+            height: 16px;
+        }
+
+        :host .navbar .nav-container .account-and-cart a .item-count {
+            position: relative;
+            top: -10px;
+        }
+
+        @media screen and (max-width: 991px) {
+            epic-navbar .navbar .nav-container .left-menu {
+                display: -webkit-inline-flex;
+                display: -ms-inline-flexbox;
+                display: inline-flex;
+                -webkit-flex-basis: 0;
+                -ms-flex-preferred-size: 0;
+                flex-basis: 0;
+                -webkit-flex-grow: 3;
+                -ms-flex-positive: 3;
+                flex-grow: 3;
+            }
+            epic-navbar .navbar .nav-container .search-and-country {
+                display: none;
+            }
+            epic-navbar .navbar .nav-container .nav-left,
+            epic-navbar .navbar .nav-container .nav-right {
+                display: none;
+            }
+            epic-navbar .navbar .nav-container .logo a.navbar-logo .content img {
+                height: 50px;
+            }
+        }
     </style>
 
     <template>
@@ -57,13 +613,13 @@ Example:
                     <ul id="desktop-country-selector">
                         <li>
                             <a href="//ca.zealoptics.com/en">
-                        Canada 
+                        Canada
                         <span class="language">(English)</span>
                         </a>
                         </li>
                         <li>
                             <a href="//www.zealoptics.com/en">
-                        United States 
+                        United States
                         <span class="language">(English)</span>
                         </a>
                         </li>
@@ -131,7 +687,7 @@ Example:
                 </ul>
                 <div class="logo">
                     <!-- logo -->
-                    <a class="navbar-logo" href='http://www.zealoptics.com/en/'>
+                    <a class="navbar-logo" href="http://www.zealoptics.com/en/">
                         <div class="content"><img src="img/brand-logo.svg" alt=""></div>
                     </a>
                 </div>
@@ -313,8 +869,7 @@ Example:
                     */
                     if ($(window).width() > 991 && $(window).scrollTop() > 0) {
                         $('.nav-container').addClass('fixed');
-                    }
-                    else {
+                    } else {
                         $('.nav-container').removeClass('fixed');
                     }
                 });
@@ -419,14 +974,14 @@ Example:
         },
 
         // Element Behavior
-        
+
         open: function() {
             $('.navbar').addClass('slide-active');
             // close sub-menus
             $('.slide-menu > li > ul').slideUp();
             $('.slide-menu > li > a').removeClass('open');
         },
-        
+
         close: function() {
             $('.navbar').removeClass('slide-active');
             // close sub-menus
@@ -434,5 +989,4 @@ Example:
             $('.slide-menu > li > a').removeClass('open');
         }
     });
-
 </script>
