@@ -90,7 +90,7 @@ $navy: #036;
                     }
 
                     input[type=submit] {
-                        background: url('../img/search_img.svg') top left no-repeat;
+                        background: url('img/search_img.svg') top left no-repeat;
                         text-indent: -9999px;
                         border: 0 none;
                         width: 16px;
@@ -108,11 +108,11 @@ $navy: #036;
                 & > a {
                     display: block;
                     color: $darkGrey;
-                    background: url("../img/accordion-arrow-down.gif") 195px center no-repeat;
+                    background: url("img/accordion-arrow-down.gif") 195px center no-repeat;
                     padding: 20px 30px;
 
                     &.open {
-                        background-image: url("../img/accordion-arrow-up.gif");
+                        background-image: url("img/accordion-arrow-up.gif");
                     }
 
                     &.no-arrow{
@@ -248,7 +248,7 @@ $navy: #036;
 
                     a{
                         &#nav-country {
-                            background: url("../img/country-selector-arrow.png") right 4px no-repeat;
+                            background: url("img/country-selector-arrow.png") right 4px no-repeat;
                             padding-right: 4px;
                         }
                     }
@@ -334,7 +334,7 @@ $navy: #036;
 
                     a#search-delete {
                         border: none;
-                        background: url(../img/btn-search-close.gif);
+                        background: url(img/btn-search-close.gif);
                         width: 16px;
                         height: 16px;
                         position: absolute;
@@ -506,13 +506,13 @@ $navy: #036;
                     font-size: 0;
 
                     &#nav-account {
-                        background: url('../img/icn-user.svg') 0 0 no-repeat;
+                        background: url('img/icn-user.svg') 0 0 no-repeat;
                         width: 12px;
                         height: 16px;
                     }
 
                     &#nav-cart {
-                        background: url('../img/mini-cart-icon.svg') 0 0 no-repeat;
+                        background: url('img/mini-cart-icon.svg') 0 0 no-repeat;
                         width: 16px;
                         height: 16px;
                     }
@@ -529,7 +529,7 @@ $navy: #036;
 }
 
 @media screen and (max-width: 991px) {
-    epic-navbar {
+    :host {
         .navbar {
             .nav-container {
                 .left-menu {

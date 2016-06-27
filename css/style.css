@@ -60,7 +60,7 @@
             :host .navbar ul.slide-menu > li form input[type=text]:focus, :host .navbar ul.slide-menu > li form input[type=search]:focus {
               outline: 0; }
           :host .navbar ul.slide-menu > li form input[type=submit] {
-            background: url("../img/search_img.svg") top left no-repeat;
+            background: url("img/search_img.svg") top left no-repeat;
             text-indent: -9999px;
             border: 0 none;
             width: 16px;
@@ -73,10 +73,10 @@
         :host .navbar ul.slide-menu > li > a {
           display: block;
           color: #333;
-          background: url("../img/accordion-arrow-down.gif") 195px center no-repeat;
+          background: url("img/accordion-arrow-down.gif") 195px center no-repeat;
           padding: 20px 30px; }
           :host .navbar ul.slide-menu > li > a.open {
-            background-image: url("../img/accordion-arrow-up.gif"); }
+            background-image: url("img/accordion-arrow-up.gif"); }
           :host .navbar ul.slide-menu > li > a.no-arrow {
             background: none; }
           :host .navbar ul.slide-menu > li > a span {
@@ -164,7 +164,7 @@
           transition: height .5s ease, border 0s, padding-left 0s, padding-right 0s;
           z-index: 11; }
         :host .navbar .nav-container .search-and-country.open-country a#nav-country {
-          background: url("../img/country-selector-arrow.png") right 4px no-repeat;
+          background: url("img/country-selector-arrow.png") right 4px no-repeat;
           padding-right: 4px; }
         :host .navbar .nav-container .search-and-country a {
           display: inline-block;
@@ -222,7 +222,7 @@
             padding: 0; }
           :host .navbar .nav-container .search-and-country form#input_ZOSearchBoxComponent a#search-delete {
             border: none;
-            background: url(../img/btn-search-close.gif);
+            background: url(img/btn-search-close.gif);
             width: 16px;
             height: 16px;
             position: absolute;
@@ -360,11 +360,11 @@
           margin: 0 10px;
           font-size: 0; }
           :host .navbar .nav-container .account-and-cart a#nav-account {
-            background: url("../img/icn-user.svg") 0 0 no-repeat;
+            background: url("img/icn-user.svg") 0 0 no-repeat;
             width: 12px;
             height: 16px; }
           :host .navbar .nav-container .account-and-cart a#nav-cart {
-            background: url("../img/mini-cart-icon.svg") 0 0 no-repeat;
+            background: url("img/mini-cart-icon.svg") 0 0 no-repeat;
             width: 16px;
             height: 16px; }
           :host .navbar .nav-container .account-and-cart a .item-count {
@@ -372,7 +372,7 @@
             top: -10px; }
 
 @media screen and (max-width: 991px) {
-  epic-navbar .navbar .nav-container .left-menu {
+  :host .navbar .nav-container .left-menu {
     display: -webkit-inline-flex;
     display: -ms-inline-flexbox;
     display: inline-flex;
@@ -382,9 +382,9 @@
     -webkit-flex-grow: 3;
         -ms-flex-positive: 3;
             flex-grow: 3; }
-  epic-navbar .navbar .nav-container .search-and-country {
+  :host .navbar .nav-container .search-and-country {
     display: none; }
-  epic-navbar .navbar .nav-container .nav-left, epic-navbar .navbar .nav-container .nav-right {
+  :host .navbar .nav-container .nav-left, :host .navbar .nav-container .nav-right {
     display: none; }
-  epic-navbar .navbar .nav-container .logo a.navbar-logo .content img {
+  :host .navbar .nav-container .logo a.navbar-logo .content img {
     height: 50px; } }
