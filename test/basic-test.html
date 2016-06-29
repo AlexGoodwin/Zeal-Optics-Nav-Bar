@@ -17,7 +17,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <script src="../../web-component-tester/browser.js"></script>
 
     <!-- Step 1: import the element to test -->
-    <link rel="import" href="../epic-navbar.html">
+    <link rel="import" href="../zeal-navbar.html">
   </head>
   <body>
 
@@ -25,7 +25,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <seed-element></seed-element>
 
     <script>
-      var myEl = document.querySelector('epic-navbar');
+      var myEl = document.querySelector('zeal-navbar');
 
       suite('<seed-element>', function() {
 
@@ -35,7 +35,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         });
 
         test('says hello', function() {
-          assert.equal(myEl.sayHello(), 'epic-navbar says, Hello World!');
+          assert.equal(myEl.sayHello(), 'zeal-navbar says, Hello World!');
 
           var greetings = myEl.sayHello('greetings Earthlings');
           assert.equal(greetings, 'seed-element says, greetings Earthlings');

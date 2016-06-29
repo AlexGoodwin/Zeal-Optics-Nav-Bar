@@ -1,5 +1,5 @@
 {
-  "name": "epic-navbar",
+  "name": "zeal-navbar",
   "version": "1.0.0",
   "authors": [
     "Alex Goodwin <agoodwin@zealoptics.com>"
@@ -11,9 +11,9 @@
     "polymer",
     "seed"
   ],
-  "main": "epic-navbar.html",
+  "main": "zeal-navbar.html",
   "license": "http://polymer.github.io/LICENSE.txt",
-  "homepage": "https://github.com/epic-elements/epic-navbar/",
+  "homepage": "https://github.com/epic-elements/zeal-navbar/",
   "ignore": [
     "/.*",
     "/test/",

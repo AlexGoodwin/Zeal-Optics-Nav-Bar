@@ -1,3 +1,3 @@
-# epic-navbar
+# zeal-navbar
 
 A functional clone of the zealoptics.com navbar.
