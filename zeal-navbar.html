@@ -851,7 +851,9 @@ Example:
             // none for now
         },
 
-        ready: function() {
+        ready: function() {},
+
+        attached: function() {
             // close side bar on window resize
             $(window)
                 .on('resize', function() {
@@ -946,8 +948,6 @@ Example:
                 $('#input_ZOSearchBoxComponent #searchInput').val('').focus();
             });
         },
-
-        attached: function() {},
 
         detached: function() {
             $('.nav-container > ul > li > a').off('click');
