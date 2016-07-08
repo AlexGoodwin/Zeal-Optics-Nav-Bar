@@ -288,10 +288,12 @@ Example:
 
         :host .navbar .nav-container .search-and-country a#nav-search img {
             width: 16px;
+            height: 16px;
         }
 
         :host .navbar .nav-container .search-and-country a#nav-country img {
             width: 25px;
+            height: 14px;
         }
 
         :host .navbar .nav-container .search-and-country a img.active-triangle {
@@ -463,7 +465,7 @@ Example:
         :host .navbar .nav-container .nav-right li ul.drop-down li {
             margin: 0;
             display: inline-block;
-            width: 25%;
+            width: 24%;
             font-size: 1rem;
             padding: 0 50px 40px;
             box-sizing: border-box;
@@ -730,13 +732,13 @@ Example:
                     </a>
                         <ul class="drop-down">
                             <li>
-                                <a href="//www.zealoptics.com/en/who-we-are">
+                                <a href="//blog.zealoptics.com/">
                                     <img src="img/blog-dropdown.jpg" alt="Blog">
                                     <span>Blog</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="//www.zealoptics.com/en/ambassador-page">
+                                <a href="//www.zealoptics.com/en/events">
                                     <img src="img/events-dropdown.jpg" alt="Events">
                                     <span>Events</span>
                                 </a>
@@ -757,6 +759,7 @@ Example:
             </div>
             <ul class="slide-menu">
                 <li>
+                    <!-- Search -->
                     <form method="get" action="//www.zealoptics.com/en/search/">
                         <input type="search" placeholder="Search" name="text">
                         <input type="submit">
@@ -902,7 +905,7 @@ Example:
             });
 
             // side menu sub-menus
-            $('.slide-menu > li > a').click(function(e) {
+            $('.slide-menu > li > a:not(.no-arrow)').click(function(e) {
                 e.preventDefault();
 
                 if ($(this).hasClass('open')) {
