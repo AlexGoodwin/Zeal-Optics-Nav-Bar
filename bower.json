@@ -13,18 +13,18 @@
   ],
   "main": "zeal-navbar.html",
   "license": "http://polymer.github.io/LICENSE.txt",
-  "homepage": "https://github.com/epic-elements/zeal-navbar/",
+  "homepage": "https://github.com/mauijim/zeal-navbar",
   "ignore": [
     "/.*",
     "/test/",
     "/demo/"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.0.0",
-    "jquery": "^3.0.0"
+    "polymer": "Polymer/polymer#^2.0.0",
+    "webcomponentsjs": "^1.0.0"
   },
   "devDependencies": {
-    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
-    "web-component-tester": "*"
+    "iron-component-page": "PolymerElements/iron-component-page#^2.0.0",
+    "web-component-tester": "^6.0.0"
   }
 }
