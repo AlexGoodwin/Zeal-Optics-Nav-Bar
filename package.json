@@ -1,6 +1,6 @@
 {
   "name": "zeal-optics-nav-bar",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A functional clone of the zealoptics.com nav bar. Polymer 2.0 element.",
   "main": "index.html",
   "scripts": {
