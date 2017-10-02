@@ -1,7 +1,7 @@
 {
   "name": "zeal-optics-nav-bar",
-  "version": "1.0.0",
-  "description": "A functional clone of the zealoptics.com nav bar",
+  "version": "2.0.0",
+  "description": "A functional clone of the zealoptics.com nav bar. Polymer 2.0 element.",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
