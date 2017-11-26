@@ -9,7 +9,6 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 <link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="./include-jquery.html" />
 
 <!--
 A functional clone of the zealoptics.com navbar
@@ -24,645 +23,649 @@ Example:
 
   <template>
     <style>
-        :host {
-            display: block;
-            box-sizing: border-box;
-        }
+      :host {
+        display: block;
+        box-sizing: border-box;
+      }
 
-        * {
-            box-sizing: inherit;
-        }
+      * {
+        box-sizing: inherit;
+      }
 
-        a {
-            font-family: "Interstate", sans-serif;
-            color: #666;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
+      a {
+        font-family: "Interstate", sans-serif;
+        color: #666;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
 
-        .navbar {
-            background: transparent;
-            padding: 0;
-            text-align: center;
-            font-size: 14px;
-            width: 100%;
-            z-index: 1;
-        }
+      .navbar {
+        background: transparent;
+        padding: 0;
+        text-align: center;
+        font-size: 14px;
+        width: 100%;
+        z-index: 1;
+      }
 
-        .navbar.slide-active {
-            overflow-x: hidden;
-            overflow-y: visible;
-            height: 64px;
-        }
+      .navbar.slide-active {
+        overflow-x: hidden;
+        overflow-y: visible;
+        height: 64px;
+      }
 
-        .navbar.slide-active .nav-container {
-            left: 230px;
-            position: fixed;
-            top: 0;
-            z-index: 1;
-        }
+      .navbar.slide-active .nav-container {
+        left: 230px;
+        position: fixed;
+        top: 0;
+        z-index: 1;
+      }
 
-        .navbar.slide-active ul.slide-menu {
-            left: 0;
-            z-index: 1;
-        }
+      .navbar.slide-active ul.slide-menu {
+        left: 0;
+        z-index: 1;
+      }
 
-        .navbar ul.slide-menu {
-            width: 230px;
-            left: -230px;
-            top: 0;
-            transition: .5s ease;
-            overflow: hidden;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            text-align: left;
-            background: white;
-            position: fixed;
-            border-right: 1px solid #ccc;
-            height: 2500px;
-            z-index: 1;
-        }
+      .navbar ul.slide-menu {
+        width: 230px;
+        left: -230px;
+        top: 0;
+        transition: .5s ease;
+        overflow: hidden;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        text-align: left;
+        background: white;
+        position: fixed;
+        border-right: 1px solid #ccc;
+        height: 2500px;
+        z-index: 1;
+      }
 
-        .navbar ul.slide-menu> li {
-            display: block;
-            padding: 0;
-            border-bottom: 1px solid #ccc;
-        }
+      .navbar ul.slide-menu>li {
+        display: block;
+        padding: 0;
+        border-bottom: 1px solid #ccc;
+      }
 
-        .navbar ul.slide-menu> li:first-of-type {
-            padding: 18.5px 30px;
-        }
+      .navbar ul.slide-menu>li:first-of-type {
+        padding: 18.5px 30px;
+      }
 
-        .navbar ul.slide-menu> li.country a img {
-            width: 30px;
-        }
+      .navbar ul.slide-menu>li.country a img {
+        width: 30px;
+      }
 
-        .navbar ul.slide-menu> li form {
-            line-height: 24px;
-            position: relative;
-        }
+      .navbar ul.slide-menu>li form {
+        line-height: 24px;
+        position: relative;
+      }
 
-        .navbar ul.slide-menu> li form input[type=text],
-        .navbar ul.slide-menu> li form input[type=search] {
-            border: none;
-            border-bottom: 1px solid #333;
-            padding: .5em 30px .5em .5em;
-            font-style: italic;
-            font-size: 14px;
-            border-radius: 0;
-            -webkit-appearance: none;
-            width: 100%;
-        }
+      .navbar ul.slide-menu>li form input[type=text],
+      .navbar ul.slide-menu>li form input[type=search] {
+        border: none;
+        border-bottom: 1px solid #333;
+        padding: .5em 30px .5em .5em;
+        font-style: italic;
+        font-size: 14px;
+        border-radius: 0;
+        -webkit-appearance: none;
+        width: 100%;
+      }
 
-        .navbar ul.slide-menu> li form input[type=text]:focus,
-        .navbar ul.slide-menu> li form input[type=search]:focus {
-            outline: 0;
-        }
+      .navbar ul.slide-menu>li form input[type=text]:focus,
+      .navbar ul.slide-menu>li form input[type=search]:focus {
+        outline: 0;
+      }
 
-        .navbar ul.slide-menu> li form input[type=submit] {
-            background: url("./img/search_img.svg") top left no-repeat;
-            text-indent: -9999px;
-            border: 0 none;
-            width: 16px;
-            height: 16px;
-            position: absolute;
-            top: 8px;
-            right: 8px;
-        }
+      .navbar ul.slide-menu>li form input[type=submit] {
+        background: url("img/search_img.svg") top left no-repeat;
+        text-indent: -9999px;
+        border: 0 none;
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        top: 8px;
+        right: 8px;
+      }
 
-        .navbar ul.slide-menu> li form input[type=submit]:hover {
-            cursor: pointer;
-        }
+      .navbar ul.slide-menu>li form input[type=submit]:hover {
+        cursor: pointer;
+      }
 
-        .navbar ul.slide-menu> li> a {
-            display: block;
-            color: #333;
-            background: url("./img/accordion-arrow-down.gif") 195px center no-repeat;
-            padding: 20px 30px;
-        }
+      .navbar ul.slide-menu>li>a {
+        display: block;
+        color: #333;
+        background: url("img/accordion-arrow-down.gif") 195px center no-repeat;
+        padding: 20px 30px;
+      }
 
-        .navbar ul.slide-menu> li> a.open {
-            background-image: url("../img/accordion-arrow-up.gif");
-        }
+      .navbar ul.slide-menu>li.open>a {
+        background-image: url("img/accordion-arrow-up.gif");
+      }
 
-        .navbar ul.slide-menu> li> a.no-arrow {
-            background: none;
-        }
+      .navbar ul.slide-menu>li>a.no-arrow {
+        background: none;
+      }
 
-        .navbar ul.slide-menu> li> a span {
-            vertical-align: top;
-            top: 2px;
-            left: 5px;
-            position: relative;
-        }
+      .navbar ul.slide-menu>li>a span {
+        vertical-align: top;
+        top: 2px;
+        left: 5px;
+        position: relative;
+      }
 
-        .navbar ul.slide-menu> li ul {
-            display: none;
-            list-style: none;
-            padding: 0 30px;
-        }
+      .navbar ul.slide-menu>li ul {
+        display: none;
+        list-style: none;
+        padding: 0 30px;
+      }
 
-        .navbar ul.slide-menu> li ul li {
-            display: block;
-            padding: 0;
-            font-size: .8em;
-        }
+      .navbar ul.slide-menu > li.open ul {
+        display: inherit;
+      }
 
-        .navbar ul.slide-menu> li ul li:first-of-type a {
-            padding-top: 0;
-        }
+      .navbar ul.slide-menu>li ul li {
+        display: block;
+        padding: 0;
+        font-size: .8em;
+      }
 
-        .navbar ul.slide-menu> li ul li a {
-            color: #333;
-            padding: 1em 2em;
-            display: block;
-            line-height: 1.5em;
-        }
+      .navbar ul.slide-menu>li ul li:first-of-type a {
+        padding-top: 0;
+      }
 
-        .navbar .nav-container {
-            background: white;
-            display: -webkit-flex;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-flex-direction: row;
-            -ms-flex-direction: row;
-            flex-direction: row;
-            -webkit-flex-wrap: nowrap;
-            -ms-flex-wrap: nowrap;
-            flex-wrap: nowrap;
-            -webkit-justify-content: space-between;
-            -ms-flex-pack: justify;
-            justify-content: space-between;
-            -webkit-align-items: center;
-            -ms-flex-align: center;
-            align-items: center;
-            margin: 0;
-            padding: 8px 10px;
-            position: relative;
-            width: 100%;
-            transition: left .5s ease;
-            left: 0;
-        }
+      .navbar ul.slide-menu>li ul li a {
+        color: #333;
+        padding: 1em 2em;
+        display: block;
+        line-height: 1.5em;
+      }
 
-        .navbar .nav-container.fixed {
-            position: fixed;
-            top: 0;
-            z-index: 1;
-        }
+      .navbar .nav-container {
+        background: white;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-flex-wrap: nowrap;
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        margin: 0;
+        padding: 8px 10px;
+        position: relative;
+        width: 100%;
+        transition: left .5s ease;
+        left: 0;
+      }
 
-        .navbar .nav-container.fixed .logo a.navbar-logo .content img {
-            height: 56px;
-            transition: height .5s ease;
-        }
+      .navbar .nav-container.fixed {
+        position: fixed;
+        top: 0;
+        z-index: 100;
+      }
 
-        .navbar .nav-container.fixed .search-and-country form#input_ZOSearchBoxComponent {
-            top: 75px;
-        }
+      .navbar .nav-container.fixed .logo a.navbar-logo .content img {
+        height: 56px;
+        transition: height .5s ease;
+      }
 
-        .navbar .nav-container.fixed .nav-left li a img.active-triangle,
-        .navbar .nav-container.fixed .nav-right li a img.active-triangle {
-            top: 36px;
-        }
+      .navbar .nav-container.fixed .search-and-country form#input_ZOSearchBoxComponent {
+        top: 75px;
+      }
 
-        .navbar .nav-container.fixed .nav-left li ul.drop-down,
-        .navbar .nav-container.fixed .nav-right li ul.drop-down {
-            top: 75px;
-        }
+      .navbar .nav-container.fixed .nav-left li a img.active-triangle,
+      .navbar .nav-container.fixed .nav-right li a img.active-triangle {
+        top: 36px;
+      }
 
+      .navbar .nav-container.fixed .nav-left li ul.drop-down,
+      .navbar .nav-container.fixed .nav-right li ul.drop-down {
+        top: 75px;
+      }
+
+      .navbar .nav-container .left-menu {
+        display: none;
+      }
+
+      .navbar .nav-container .left-menu a#openSlideMenu img {
+        width: 24px;
+        height: 24px;
+      }
+
+      .navbar .nav-container .search-and-country {
+        -webkit-order: 1;
+        -ms-flex-order: 1;
+        order: 1;
+        -webkit-flex-grow: 3;
+        -ms-flex-positive: 3;
+        flex-grow: 3;
+        -webkit-flex-basis: 0;
+        -ms-flex-preferred-size: 0;
+        flex-basis: 0;
+        text-align: left;
+      }
+
+      .navbar .nav-container .search-and-country.open-search form#input_ZOSearchBoxComponent {
+        height: 80px;
+        transition: height .5s ease, padding .5s ease, border 0s;
+        padding: .5em 1em;
+        border-top-width: 4px;
+        z-index: 10;
+      }
+
+      .navbar .nav-container .search-and-country.open-search a img.active-triangle {
+        display: block;
+        width: 20px;
+      }
+
+      .navbar .nav-container .search-and-country.open-country ul#desktop-country-selector {
+        height: 100px;
+        padding: 1em;
+        border-width: 1px;
+        transition: height .5s ease, border 0s, padding-left 0s, padding-right 0s;
+        z-index: 11;
+        list-style: none;
+      }
+
+      .navbar .nav-container .search-and-country.open-country a#nav-country {
+        background: url("img/country-selector-arrow.png") right 4px no-repeat;
+        padding-right: 4px;
+      }
+
+      .navbar .nav-container .search-and-country a {
+        display: inline-block;
+        margin: 0 9px;
+        padding: 0;
+        font-size: 12px;
+        color: #666;
+        padding-right: 0;
+        font-weight: 500;
+      }
+
+      .navbar .nav-container .search-and-country a#nav-search img {
+        width: 16px;
+        height: 16px;
+      }
+
+      .navbar .nav-container .search-and-country a#nav-country img {
+        width: 25px;
+        height: 14px;
+      }
+
+      .navbar .nav-container .search-and-country a img.active-triangle {
+        position: absolute;
+        bottom: 0;
+        display: none;
+      }
+
+      .navbar .nav-container .search-and-country a span {
+        vertical-align: top;
+        letter-spacing: 1px;
+        position: relative;
+        top: 2px;
+        padding: 2px 5px;
+      }
+
+      .navbar .nav-container .search-and-country form#input_ZOSearchBoxComponent {
+        height: 0;
+        overflow: hidden;
+        box-sizing: border-box;
+        transition: height .5s ease, padding .5s ease, border 0s;
+        position: absolute;
+        top: 103px;
+        left: 0;
+        width: 100%;
+        background: white;
+        border-top: 0px solid #ccc;
+        border-radius: 0;
+        padding: 0 1em;
+        font-size: 2em;
+        z-index: 9;
+      }
+
+      .navbar .nav-container .search-and-country form#input_ZOSearchBoxComponent input[type=search],
+      .navbar .nav-container .search-and-country form#input_ZOSearchBoxComponent input[type=text] {
+        text-transform: uppercase;
+        width: 100%;
+        float: left;
+        padding: 0 0 .5em;
+        border: none;
+        border-bottom: 1px solid #ccc;
+        color: #333;
+        font-weight: bold;
+        font-size: 1em;
+      }
+
+      .navbar .nav-container .search-and-country form#input_ZOSearchBoxComponent input[type=search]:focus,
+      .navbar .nav-container .search-and-country form#input_ZOSearchBoxComponent input[type=text]:focus {
+        outline: 0;
+      }
+
+      .navbar .nav-container .search-and-country form#input_ZOSearchBoxComponent input[type=submit] {
+        width: 0;
+        float: left;
+        border: none;
+        padding: 0;
+      }
+
+      .navbar .nav-container .search-and-country form#input_ZOSearchBoxComponent a#search-delete {
+        border: none;
+        background: url(img/btn-search-close.gif);
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        right: 30px;
+        top: 24px;
+        text-indent: -9999px;
+      }
+
+      .navbar .nav-container .search-and-country ul#desktop-country-selector {
+        padding: 0;
+        border: 0 solid #ccc;
+        border-radius: 0;
+        top: 68px;
+        position: absolute;
+        left: 56px;
+        background: white;
+        height: 0;
+        transition: .5s ease, border 0s;
+        overflow: hidden;
+      }
+
+      .navbar .nav-container .search-and-country ul#desktop-country-selector li {
+        margin: 1em 0;
+      }
+
+      .navbar .nav-container .search-and-country ul#desktop-country-selector li a {
+        text-transform: uppercase;
+      }
+
+      .navbar .nav-container .search-and-country ul#desktop-country-selector li a span {
+        text-transform: none;
+        color: #999;
+        margin: 0;
+        padding: 0;
+        top: 0;
+      }
+
+      .navbar .nav-container .nav-left,
+      .navbar .nav-container .nav-right {
+        -webkit-flex-grow: 4;
+        -ms-flex-positive: 4;
+        flex-grow: 4;
+        -webkit-flex-basis: 0;
+        -ms-flex-preferred-size: 0;
+        flex-basis: 0;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .navbar .nav-container .nav-left li,
+      .navbar .nav-container .nav-right li {
+        display: inline-block;
+        margin: auto 6px;
+      }
+
+      .navbar .nav-container .nav-left li.open a img.active-triangle,
+      .navbar .nav-container .nav-right li.open a img.active-triangle {
+        display: block;
+      }
+
+      .navbar .nav-container .nav-left li.open ul.drop-down,
+      .navbar .nav-container .nav-right li.open ul.drop-down {
+        height: 223px;
+        transition: height .5s ease, border 0s;
+        border-top-width: 4px;
+        z-index: 10;
+      }
+
+      .navbar .nav-container .nav-left li a,
+      .navbar .nav-container .nav-right li a {
+        font-weight: bold;
+        color: #333;
+        position: relative;
+        overflow: visible;
+      }
+
+      .navbar .nav-container .nav-left li a img.active-triangle,
+      .navbar .nav-container .nav-right li a img.active-triangle {
+        position: absolute;
+        top: 51px;
+        width: 20px;
+        left: calc(50% - 10px);
+        display: none;
+      }
+
+      .navbar .nav-container .nav-left li ul.drop-down,
+      .navbar .nav-container .nav-right li ul.drop-down {
+        height: 0;
+        padding: 0;
+        position: absolute;
+        left: 0;
+        top: 103px;
+        list-style: none;
+        width: 100%;
+        margin: 0;
+        background: white;
+        text-align: center;
+        font-size: 0;
+        border-top: 0px solid #ccc;
+        border-radius: 0;
+        transition: height .5s ease, border 0s;
+        overflow: hidden;
+        z-index: 9;
+      }
+
+      .navbar .nav-container .nav-left li ul.drop-down li,
+      .navbar .nav-container .nav-right li ul.drop-down li {
+        margin: 0;
+        display: inline-block;
+        width: 24%;
+        font-size: 1rem;
+        padding: 0 50px 40px;
+        box-sizing: border-box;
+        vertical-align: top;
+      }
+
+      .navbar .nav-container .nav-left li ul.drop-down li a,
+      .navbar .nav-container .nav-right li ul.drop-down li a {
+        color: #036;
+        margin: 0px;
+      }
+
+      .navbar .nav-container .nav-left li ul.drop-down li a img,
+      .navbar .nav-container .nav-right li ul.drop-down li a img {
+        max-width: 100%;
+        display: block;
+        margin: 30px auto;
+        max-height: 135px;
+      }
+
+      .navbar .nav-container .nav-left li ul.drop-down li a span,
+      .navbar .nav-container .nav-right li ul.drop-down li a span {
+        font-size: 14px;
+        letter-spacing: 1px;
+        vertical-align: top;
+        display: block;
+      }
+
+      .navbar .nav-container .nav-left {
+        -webkit-order: 2;
+        -ms-flex-order: 2;
+        order: 2;
+        text-align: right;
+      }
+
+      .navbar .nav-container .nav-right {
+        -webkit-order: 4;
+        -ms-flex-order: 4;
+        order: 4;
+        text-align: left;
+      }
+
+      .navbar .nav-container .logo {
+        -webkit-order: 3;
+        -ms-flex-order: 3;
+        order: 3;
+        -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        margin: 0;
+        padding: 0;
+      }
+
+      .navbar .nav-container .logo a.navbar-logo {
+        display: inline-block;
+      }
+
+      .navbar .nav-container .logo a.navbar-logo .content img {
+        width: auto;
+        height: 85px;
+        transition: height .5s ease;
+      }
+
+      .navbar .nav-container .account-and-cart {
+        -webkit-order: 5;
+        -ms-flex-order: 5;
+        order: 5;
+        -webkit-flex-grow: 3;
+        -ms-flex-positive: 3;
+        flex-grow: 3;
+        -webkit-flex-basis: 0;
+        -ms-flex-preferred-size: 0;
+        flex-basis: 0;
+        text-align: right;
+      }
+
+      .navbar .nav-container .account-and-cart a {
+        display: inline-block;
+        margin: 0 10px;
+        font-size: 0;
+        vertical-align: top;
+      }
+
+      .navbar .nav-container .account-and-cart a#nav-account {
+        background: url("img/icn-user.svg") 0 0 no-repeat;
+        width: 12px;
+        height: 16px;
+      }
+
+      .navbar .nav-container .account-and-cart a#nav-cart {
+        background: url("img/mini-cart-icon.svg") 0 0 no-repeat;
+        width: 16px;
+        height: 16px;
+      }
+
+      .navbar .nav-container .account-and-cart a .item-count {
+        position: relative;
+        top: -10px;
+      }
+
+      @media screen and (max-width: 991px) {
         .navbar .nav-container .left-menu {
-            display: none;
+          display: -webkit-inline-flex;
+          display: -ms-inline-flexbox;
+          display: inline-flex;
+          -webkit-flex-basis: 0;
+          -ms-flex-preferred-size: 0;
+          flex-basis: 0;
+          -webkit-flex-grow: 3;
+          -ms-flex-positive: 3;
+          flex-grow: 3;
         }
-
-        .navbar .nav-container .left-menu a#openSlideMenu img {
-            width: 24px;
-            height: 24px;
-        }
-
         .navbar .nav-container .search-and-country {
-            -webkit-order: 1;
-            -ms-flex-order: 1;
-            order: 1;
-            -webkit-flex-grow: 3;
-            -ms-flex-positive: 3;
-            flex-grow: 3;
-            -webkit-flex-basis: 0;
-            -ms-flex-preferred-size: 0;
-            flex-basis: 0;
-            text-align: left;
+          display: none;
         }
-
-        .navbar .nav-container .search-and-country.open-search form#input_ZOSearchBoxComponent {
-            height: 80px;
-            transition: height .5s ease, padding .5s ease, border 0s;
-            padding: .5em 1em;
-            border-top-width: 4px;
-            z-index: 10;
-        }
-
-        .navbar .nav-container .search-and-country.open-search a img.active-triangle {
-            display: block;
-            width: 20px;
-        }
-
-        .navbar .nav-container .search-and-country.open-country ul#desktop-country-selector {
-            height: 100px;
-            padding: 1em;
-            border-width: 1px;
-            transition: height .5s ease, border 0s, padding-left 0s, padding-right 0s;
-            z-index: 11;
-            list-style: none;
-        }
-
-        .navbar .nav-container .search-and-country.open-country a#nav-country {
-            background: url("../img/country-selector-arrow.png") right 4px no-repeat;
-            padding-right: 4px;
-        }
-
-        .navbar .nav-container .search-and-country a {
-            display: inline-block;
-            margin: 0 9px;
-            padding: 0;
-            font-size: 12px;
-            color: #666;
-            padding-right: 0;
-            font-weight: 500;
-        }
-
-        .navbar .nav-container .search-and-country a#nav-search img {
-            width: 16px;
-            height: 16px;
-        }
-
-        .navbar .nav-container .search-and-country a#nav-country img {
-            width: 25px;
-            height: 14px;
-        }
-
-        .navbar .nav-container .search-and-country a img.active-triangle {
-            position: absolute;
-            bottom: 0;
-            display: none;
-        }
-
-        .navbar .nav-container .search-and-country a span {
-            vertical-align: top;
-            letter-spacing: 1px;
-            position: relative;
-            top: 2px;
-            padding: 2px 5px;
-        }
-
-        .navbar .nav-container .search-and-country form#input_ZOSearchBoxComponent {
-            height: 0;
-            overflow: hidden;
-            box-sizing: border-box;
-            transition: height .5s ease, padding .5s ease, border 0s;
-            position: absolute;
-            top: 103px;
-            left: 0;
-            width: 100%;
-            background: white;
-            border-top: 0px solid #ccc;
-            border-radius: 0;
-            padding: 0 1em;
-            font-size: 2em;
-            z-index: 9;
-        }
-
-        .navbar .nav-container .search-and-country form#input_ZOSearchBoxComponent input[type=search],
-        .navbar .nav-container .search-and-country form#input_ZOSearchBoxComponent input[type=text] {
-            text-transform: uppercase;
-            width: 100%;
-            float: left;
-            padding: 0 0 .5em;
-            border: none;
-            border-bottom: 1px solid #ccc;
-            color: #333;
-            font-weight: bold;
-            font-size: 1em;
-        }
-
-        .navbar .nav-container .search-and-country form#input_ZOSearchBoxComponent input[type=search]:focus,
-        .navbar .nav-container .search-and-country form#input_ZOSearchBoxComponent input[type=text]:focus {
-            outline: 0;
-        }
-
-        .navbar .nav-container .search-and-country form#input_ZOSearchBoxComponent input[type=submit] {
-            width: 0;
-            float: left;
-            border: none;
-            padding: 0;
-        }
-
-        .navbar .nav-container .search-and-country form#input_ZOSearchBoxComponent a#search-delete {
-            border: none;
-            background: url(img/btn-search-close.gif);
-            width: 16px;
-            height: 16px;
-            position: absolute;
-            right: 30px;
-            top: 24px;
-            text-indent: -9999px;
-        }
-
-        .navbar .nav-container .search-and-country ul#desktop-country-selector {
-            padding: 0;
-            border: 0 solid #ccc;
-            border-radius: 0;
-            top: 68px;
-            position: absolute;
-            left: 56px;
-            background: white;
-            height: 0;
-            transition: .5s ease, border 0s;
-            overflow: hidden;
-        }
-
-        .navbar .nav-container .search-and-country ul#desktop-country-selector li {
-            margin: 1em 0;
-        }
-
-        .navbar .nav-container .search-and-country ul#desktop-country-selector li a {
-            text-transform: uppercase;
-        }
-
-        .navbar .nav-container .search-and-country ul#desktop-country-selector li a span {
-            text-transform: none;
-            color: #999;
-            margin: 0;
-            padding: 0;
-            top: 0;
-        }
-
         .navbar .nav-container .nav-left,
         .navbar .nav-container .nav-right {
-            -webkit-flex-grow: 4;
-            -ms-flex-positive: 4;
-            flex-grow: 4;
-            -webkit-flex-basis: 0;
-            -ms-flex-preferred-size: 0;
-            flex-basis: 0;
-            list-style: none;
-            padding: 0;
-            margin: 0;
+          display: none;
         }
-
-        .navbar .nav-container .nav-left li,
-        .navbar .nav-container .nav-right li {
-            display: inline-block;
-            margin: auto 6px;
-        }
-
-        .navbar .nav-container .nav-left li.open a img.active-triangle,
-        .navbar .nav-container .nav-right li.open a img.active-triangle {
-            display: block;
-        }
-
-        .navbar .nav-container .nav-left li.open ul.drop-down,
-        .navbar .nav-container .nav-right li.open ul.drop-down {
-            height: 223px;
-            transition: height .5s ease, border 0s;
-            border-top-width: 4px;
-            z-index: 10;
-        }
-
-        .navbar .nav-container .nav-left li a,
-        .navbar .nav-container .nav-right li a {
-            font-weight: bold;
-            color: #333;
-            position: relative;
-            overflow: visible;
-        }
-
-        .navbar .nav-container .nav-left li a img.active-triangle,
-        .navbar .nav-container .nav-right li a img.active-triangle {
-            position: absolute;
-            top: 51px;
-            width: 20px;
-            left: calc(50% - 10px);
-            display: none;
-        }
-
-        .navbar .nav-container .nav-left li ul.drop-down,
-        .navbar .nav-container .nav-right li ul.drop-down {
-            height: 0;
-            padding: 0;
-            position: absolute;
-            left: 0;
-            top: 103px;
-            list-style: none;
-            width: 100%;
-            margin: 0;
-            background: white;
-            text-align: center;
-            font-size: 0;
-            border-top: 0px solid #ccc;
-            border-radius: 0;
-            transition: height .5s ease, border 0s;
-            overflow: hidden;
-            z-index: 9;
-        }
-
-        .navbar .nav-container .nav-left li ul.drop-down li,
-        .navbar .nav-container .nav-right li ul.drop-down li {
-            margin: 0;
-            display: inline-block;
-            width: 24%;
-            font-size: 1rem;
-            padding: 0 50px 40px;
-            box-sizing: border-box;
-            vertical-align: top;
-        }
-
-        .navbar .nav-container .nav-left li ul.drop-down li a,
-        .navbar .nav-container .nav-right li ul.drop-down li a {
-            color: #036;
-            margin: 0px;
-        }
-
-        .navbar .nav-container .nav-left li ul.drop-down li a img,
-        .navbar .nav-container .nav-right li ul.drop-down li a img {
-            max-width: 100%;
-            display: block;
-            margin: 30px auto;
-            max-height: 135px;
-        }
-
-        .navbar .nav-container .nav-left li ul.drop-down li a span,
-        .navbar .nav-container .nav-right li ul.drop-down li a span {
-            font-size: 14px;
-            letter-spacing: 1px;
-            vertical-align: top;
-            display: block;
-        }
-
-        .navbar .nav-container .nav-left {
-            -webkit-order: 2;
-            -ms-flex-order: 2;
-            order: 2;
-            text-align: right;
-        }
-
-        .navbar .nav-container .nav-right {
-            -webkit-order: 4;
-            -ms-flex-order: 4;
-            order: 4;
-            text-align: left;
-        }
-
-        .navbar .nav-container .logo {
-            -webkit-order: 3;
-            -ms-flex-order: 3;
-            order: 3;
-            -webkit-flex-grow: 1;
-            -ms-flex-positive: 1;
-            flex-grow: 1;
-            margin: 0;
-            padding: 0;
-        }
-
-        .navbar .nav-container .logo a.navbar-logo {
-            display: inline-block;
-        }
-
         .navbar .nav-container .logo a.navbar-logo .content img {
-            width: auto;
-            height: 85px;
-            transition: height .5s ease;
+          height: 50px;
         }
-
-        .navbar .nav-container .account-and-cart {
-            -webkit-order: 5;
-            -ms-flex-order: 5;
-            order: 5;
-            -webkit-flex-grow: 3;
-            -ms-flex-positive: 3;
-            flex-grow: 3;
-            -webkit-flex-basis: 0;
-            -ms-flex-preferred-size: 0;
-            flex-basis: 0;
-            text-align: right;
-        }
-
-        .navbar .nav-container .account-and-cart a {
-            display: inline-block;
-            margin: 0 10px;
-            font-size: 0;
-            vertical-align: top;
-        }
-
-        .navbar .nav-container .account-and-cart a#nav-account {
-            background: url("./img/icn-user.svg") 0 0 no-repeat;
-            width: 12px;
-            height: 16px;
-        }
-
-        .navbar .nav-container .account-and-cart a#nav-cart {
-            background: url("./img/mini-cart-icon.svg") 0 0 no-repeat;
-            width: 16px;
-            height: 16px;
-        }
-
-        .navbar .nav-container .account-and-cart a .item-count {
-            position: relative;
-            top: -10px;
-        }
-
-        @media screen and (max-width: 991px) {
-            .navbar .nav-container .left-menu {
-                display: -webkit-inline-flex;
-                display: -ms-inline-flexbox;
-                display: inline-flex;
-                -webkit-flex-basis: 0;
-                -ms-flex-preferred-size: 0;
-                flex-basis: 0;
-                -webkit-flex-grow: 3;
-                -ms-flex-positive: 3;
-                flex-grow: 3;
-            }
-            .navbar .nav-container .search-and-country {
-                display: none;
-            }
-            .navbar .nav-container .nav-left,
-            .navbar .nav-container .nav-right {
-                display: none;
-            }
-            .navbar .nav-container .logo a.navbar-logo .content img {
-                height: 50px;
-            }
-        }
+      }
     </style>
 
     <nav id="newNav" class="navbar" role="navigation">
         <div class="nav-container">
             <div class="left-menu">
-                <a href="#" id="openSlideMenu">
-                    <img src="../img/icn-mobile-nav.svg" alt="open side menu">
+                <a href="#" id="openSlideMenu" on-click="toggleSlideMenu">
+                    <img src$="[[importPath]]img/icn-mobile-nav.svg" alt="open side menu">
                 </a>
             </div>
             <div class="search-and-country">
                 <!-- search -->
-                <a href="#" id="nav-search">
-                    <img src="../img/search_img.svg">
-                    <img class="active-triangle" src="../img/menu_active.svg" alt="">
+                <a href="#" id="nav-search" on-click="navSearch">
+                    <img src$="[[importPath]]img/search_img.svg">
+                    <img class="active-triangle" src$="[[importPath]]img/menu_active.svg" alt="">
                 </a>
 
-                <form id="input_ZOSearchBoxComponent" method="get" action="//www.zealoptics.com/en/search/">
+                <form id="input_ZOSearchBoxComponent" method="get" action="https://www.zealoptics.com/en/search/">
                     <input type="text" id="searchInput" placeholder="Search" name="text" maxlength="100">
-                    <a href="#" id="search-delete">X</a>
+                    <a href="#" id="search-delete" on-click="searchDelete">X</a>
                     <input type="submit" value="">
                 </form>
 
                 <!-- country -->
-                <a href="#" id="nav-country">
-                    <img src="../img/country-img.svg" alt="country">
+                <a href="#" id="nav-country" on-click="selectCountry">
+                    <img src$="[[importPath]]img/country-img.svg" alt="country">
                     <span>USA&nbsp;(EN)</span>
                 </a>
 
                 <ul id="desktop-country-selector">
                     <li>
-                        <a href="http://ca.zealoptics.com/en">
-                    Canada
-                    <span class="language">(English)</span>
-                    </a>
+                      <a href="http://ca.zealoptics.com/en">
+                      Canada
+                      <span class="language">(English)</span>
+                      </a>
                     </li>
                     <li>
-                        <a href="//www.zealoptics.com/en">
-                    United States
-                    <span class="language">(English)</span>
-                    </a>
+                      <a href="//www.zealoptics.com/en">
+                        United States
+                        <span class="language">(English)</span>
+                      </a>
                     </li>
                 </ul>
             </div>
             <ul class="nav-left">
                 <li>
                     <a href="#" id="nav-shop">
-                    Shop
-                    <img class="active-triangle" src="../img/menu_active.svg" alt="">
-                </a>
+                      Shop
+                      <img class="active-triangle" src$="[[importPath]]img/menu_active.svg" alt="">
+                    </a>
                     <ul class="drop-down">
                         <li>
                             <a href="//www.zealoptics.com/en/shop/sunglasses?all=true">
-                                <img src="../img/sunglasses-dropdown.jpg" alt="Sunglasses">
+                                <img src$="[[importPath]]img/sunglasses-dropdown.jpg" alt="Sunglasses">
                                 <span>Sunglasses</span>
                             </a>
                         </li>
                         <li>
                             <a href="//www.zealoptics.com/en/shop/goggles?all=true">
-                                <img src="../img/goggles-dropdown.jpg" alt="Goggles">
+                                <img src$="[[importPath]]img/goggles-dropdown.jpg" alt="Goggles">
                                 <span>Goggles</span>
                             </a>
                         </li>
                         <li>
                             <a href="//www.zealoptics.com/en/shop/accessory-lenses">
-                                <img src="../img/shop3.png" alt="Accessory Lenses">
+                                <img src$="[[importPath]]img/shop3.png" alt="Accessory Lenses">
                                 <span>Accessory Lenses</span>
                             </a>
                         </li>
                         <li>
                             <a href="//www.zealoptics.com/en/shop/accessories">
-                                <img src="../img/shop4.png" alt="Accessories">
+                                <img src$="[[importPath]]img/shop4.png" alt="Accessories">
                                 <span>Accessories</span>
                             </a>
                         </li>
@@ -670,25 +673,25 @@ Example:
                 </li>
                 <li>
                     <a href="#" id="nav-technology">
-                    Technology
-                    <img class="active-triangle" src="../img/menu_active.svg" alt="">
-                </a>
+                        Technology
+                        <img class="active-triangle" src$="[[importPath]]img/menu_active.svg" alt="">
+                    </a>
                     <ul class="drop-down">
                         <li>
                             <a href="//www.zealoptics.com/en/sunglass-technology">
-                                <img src="../img/shop1.png" alt="Sunglass Technology">
+                                <img src$="[[importPath]]img/shop1.png" alt="Sunglass Technology">
                                 <span>Sunglass Technology</span>
                             </a>
                         </li>
                         <li>
                             <a href="//www.zealoptics.com/en/goggle-tech">
-                                <img src="../img/shop2.png" alt="Goggle Technology">
+                                <img src$="[[importPath]]img/shop2.png" alt="Goggle Technology">
                                 <span>Goggle Technology</span>
                             </a>
                         </li>
                         <li>
                             <a href="//www.zealoptics.com/en/passport-page">
-                                <img src="../img/prescription-dropdown.jpg" alt="Prescription">
+                                <img src$="[[importPath]]img/prescription-dropdown.jpg" alt="Prescription">
                                 <span>Prescription</span>
                             </a>
                         </li>
@@ -698,31 +701,31 @@ Example:
             <div class="logo">
                 <!-- logo -->
                 <a class="navbar-logo" href="http://www.zealoptics.com/en/">
-                    <div class="content"><img src="../img/brand-logo.svg" alt=""></div>
+                    <div class="content"><img src$="[[importPath]]img/brand-logo.svg" alt=""></div>
                 </a>
             </div>
             <ul class="nav-right">
                 <li>
                     <a href="#" id="nav-our-story">
-                    Our Story
-                    <img class="active-triangle" src="../img/menu_active.svg" alt="">
-                </a>
+                        Our Story
+                        <img class="active-triangle" src$="[[importPath]]img/menu_active.svg" alt="">
+                    </a>
                     <ul class="drop-down">
                         <li>
                             <a href="//www.zealoptics.com/en/who-we-are">
-                                <img src="../img/whoweare-dropdown.jpg" alt="Who We Are">
+                                <img src$="[[importPath]]img/whoweare-dropdown.jpg" alt="Who We Are">
                                 <span>Who We Are</span>
                             </a>
                         </li>
                         <li>
                             <a href="//www.zealoptics.com/en/ambassador-page">
-                                <img src="../img/ambassadors-dropdown.jpg" alt="Ambassadors">
+                                <img src$="[[importPath]]img/ambassadors-dropdown.jpg" alt="Ambassadors">
                                 <span>Ambassadors</span>
                             </a>
                         </li>
                         <li>
                             <a href="//www.zealoptics.com/en/community-page">
-                                <img src="../img/community-dropdown.jpg" alt="Community">
+                                <img src$="[[importPath]]img/community-dropdown.jpg" alt="Community">
                                 <span>Community</span>
                             </a>
                         </li>
@@ -730,25 +733,25 @@ Example:
                 </li>
                 <li>
                     <a href="#" id="nav-explore-more">
-                    Explore More
-                    <img class="active-triangle" src="../img/menu_active.svg" alt="">
-                </a>
+                        Explore More
+                        <img class="active-triangle" src$="[[importPath]]img/menu_active.svg" alt="">
+                    </a>
                     <ul class="drop-down">
                         <li>
                             <a href="http://blog.zealoptics.com/">
-                                <img src="../img/blog-dropdown.jpg" alt="Blog">
+                                <img src$="[[importPath]]img/blog-dropdown.jpg" alt="Blog">
                                 <span>Blog</span>
                             </a>
                         </li>
                         <li>
                             <a href="//www.zealoptics.com/en/events">
-                                <img src="../img/events-dropdown.jpg" alt="Events">
+                                <img src$="[[importPath]]img/events-dropdown.jpg" alt="Events">
                                 <span>Events</span>
                             </a>
                         </li>
                         <li>
                             <a href="//www.zealhd.com">
-                                <img src="../img/zealhd-dropdown.jpg" alt="ZealHD.com">
+                                <img src$="[[importPath]]img/zealhd-dropdown.jpg" alt="ZealHD.com">
                                 <span>ZealHD.com</span>
                             </a>
                         </li>
@@ -832,7 +835,7 @@ Example:
             </li>
             <li class="country">
                 <a href="#">
-                    <img src="../img/country-img.svg" alt="Country">
+                    <img src$="[[importPath]]img/country-img.svg" alt="Country">
                     <span>USA &nbsp;(EN)</span>
                 </a>
                 <ul>
@@ -849,128 +852,136 @@ Example:
 </dom-module>
 
 <script>
-  Polymer({
+  class ZealNavbar extends Polymer.Element {
+    static get is() {
+      return 'zeal-navbar';
+    }
 
-    is: 'zeal-navbar',
+    closeDesktopSubMenus() {
+      this.shadowRoot.querySelectorAll('.nav-container > ul > li').forEach(elem => {
+        elem.classList.remove('open');
+      });
+    }
 
-    attached: function() {
-      // close side bar on window resize
-      $(window)
-        .on('resize', function() {
-          $('.navbar').removeClass('slide-active');
-        })
-        .on('scroll', function() {
-          /*
-              Scroll logic for collapsing top nav.
-              Used to watch for scrollTop() > $('.nav-container').height(), but this introduces a weird infinitely looping bug
-          */
-          if ($(window).width() > 991 && $(window).scrollTop() > 0) {
-            $('.nav-container').addClass('fixed');
+    closeSlideMenuSubmenus() {
+      this.shadowRoot.querySelectorAll('.slide-menu > li').forEach(elem => {
+        elem.classList.remove('open');
+      })
+    }
+
+    selectCountry(e) {
+      e.preventDefault();
+
+      this.closeDesktopSubMenus();
+
+      this.shadowRoot.querySelector('.search-and-country').classList.toggle('open-country');
+      this.shadowRoot.querySelector('.search-and-country').classList.remove('open-search');
+    }
+
+    navSearch(e) {
+      e.preventDefault();
+
+      this.closeDesktopSubMenus();
+
+      let searchAndCountry = this.shadowRoot.querySelector('.search-and-country');
+
+      searchAndCountry.classList.toggle('open-search');
+      searchAndCountry.classList.remove('open-country');
+
+      if(searchAndCountry.classList.contains('open-search')) {
+        this.shadowRoot.getElementById('searchInput').focus();
+      } else {
+        this.shadowRoot.getElementById('searchInput').blur();
+      }
+    }
+
+    searchDelete(e) {
+      e.preventDefault();
+
+      const inputElem = this.shadowRoot.getElementById('searchInput');
+
+      inputElem.value = '';
+      inputElem.focus();
+    }
+
+    closeSlideMenu() {
+      this.shadowRoot.querySelector('.navbar').classList.remove('slide-active');
+
+      this.closeDesktopSubMenus();
+      this.closeSlideMenuSubmenus();
+    }
+
+    toggleSlideMenu(e) {
+      e.preventDefault();
+
+      this.shadowRoot.querySelector('.navbar').classList.toggle('slide-active');
+
+      this.closeDesktopSubMenus();
+      this.closeSlideMenuSubmenus();
+    }
+
+    attachDesktopMenuHandlers() {
+      const menuItemsArray = this.shadowRoot.querySelectorAll('.nav-container > ul > li > a');
+
+      menuItemsArray.forEach((elem) => {
+        elem.addEventListener('click', e => {
+          e.preventDefault();
+
+          // close search
+          this.shadowRoot.getElementById('nav-search').parentElement.classList.remove('open-search', 'open-country');
+
+          if(elem.parentElement.classList.contains('open')) {
+            elem.parentElement.classList.remove('open');
           } else {
-            $('.nav-container').removeClass('fixed');
+            this.closeDesktopSubMenus();
+
+            elem.parentElement.classList.add('open');
           }
         });
-
-      // top-level desktop nav
-      $('.nav-container > ul > li > a').click(function(e) {
-        e.preventDefault();
-
-        // close search
-        $('#nav-search').parent().removeClass('open-search').removeClass('open-country');
-
-        // open this drop-down
-        if ($(this).parent().hasClass('open')) {
-          $(this).parent().removeClass('open');
-        } else {
-          // close other drop-downs
-          $('.nav-container > ul > li').removeClass('open');
-
-          // open this drop-down
-          $(this).parent().addClass('open');
-        }
       });
-
-      // open side menu
-      $('#openSlideMenu').click(function(e) {
-        e.preventDefault();
-
-        $('.navbar').toggleClass('slide-active');
-
-        // close sub-menus
-        $('.slide-menu > li > ul').slideUp();
-        $('.slide-menu > li > a').removeClass('open');
-      });
-
-      // side menu sub-menus
-      $('.slide-menu > li > a:not(.no-arrow)').click(function(e) {
-        e.preventDefault();
-
-        if ($(this).hasClass('open')) {
-          $(this).siblings('ul').slideUp();
-          $(this).removeClass('open');
-        } else {
-          $(this).siblings('ul').slideDown();
-          $(this).addClass('open');
-        }
-
-        // close other sub-menus
-        $(this).parent().siblings().children('ul').slideUp();
-        $(this).parent().siblings().children('a').removeClass('open');
-      });
-
-      // desktop search
-      $('#nav-search').click(function(e) {
-        e.preventDefault();
-
-        // close menu sub-menus
-        $('.nav-container > ul > li').removeClass('open');
-
-        $(this).parent().toggleClass('open-search').removeClass('open-country');
-
-        if ($(this).parent().hasClass('open-search')) {
-          $('#searchInput').focus();
-        } else {
-          $('#searchInput').blur();
-        }
-      });
-
-      // desktop country selector
-      $('#nav-country').click(function(e) {
-        e.preventDefault();
-        $('.nav-container > ul > li').removeClass('open');
-        $(this).parent().toggleClass('open-country').removeClass('open-search');
-      });
-
-      // bind input clear x
-      $('a#search-delete').click(function(e) {
-        e.preventDefault();
-
-        $('#input_ZOSearchBoxComponent #searchInput').val('').focus();
-      });
-    },
-
-    detached: function() {
-      $('.nav-container > ul > li > a').off('click');
-      $('#openSlideMenu').off('click');
-      $('.slide-menu > li > a').off('click');
-      $('#nav-search').off('click');
-      $('a#search-delete').off('click');
-    },
-
-    // Element Behavior
-
-    open: function() {
-      $('.navbar').addClass('slide-active');
-      // close sub-menus
-      $('.slide-menu > li > ul').slideUp();
-      $('.slide-menu > li > a').removeClass('open');
-    },
-
-    close: function() {
-      $('.navbar').removeClass('slide-active');
-      // close sub-menus
-      $('.slide-menu > li > ul').slideUp();
-      $('.slide-menu > li > a').removeClass('open');
     }
-  });
+
+    attachSlideMenuHandlers() {
+      const slideMenuDropdownArray = this.shadowRoot.querySelectorAll('.slide-menu > li > a:not(.no-arrow)');
+
+      slideMenuDropdownArray.forEach((elem) => {
+        elem.addEventListener('click', e => {
+          e.preventDefault();
+
+          const parent = elem.parentElement;
+
+          if(parent.classList.contains('open')) {
+            parent.classList.remove('open');
+          } else {
+            this.closeSlideMenuSubmenus();
+            parent.classList.add('open');
+          }
+        })
+      });
+    }
+
+    connectedCallback() {
+      super.connectedCallback();
+
+      window.addEventListener('resize', () => {
+        // close side bar on window resize
+        this.closeSlideMenu();
+      });
+
+      window.addEventListener('scroll', () => {
+        // dynamically set 'fixed' class on component
+        if(this.offsetWidth > 991 && window.scrollY > 0) {
+          this.shadowRoot.querySelector('.nav-container').classList.add('fixed')
+        } else {
+          this.shadowRoot.querySelector('.nav-container').classList.remove('fixed')
+        }
+      })
+
+      this.attachDesktopMenuHandlers();
+
+      this.attachSlideMenuHandlers();
+    }
+  }
+
+  window.customElements.define(ZealNavbar.is, ZealNavbar);
 </script>
