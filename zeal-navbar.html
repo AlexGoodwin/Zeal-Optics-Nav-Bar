@@ -65,9 +65,9 @@ Example:
         margin: 0;
         text-align: left;
         background: white;
-        position: fixed;
+        position: absolute;
         border-right: 1px solid #ccc;
-        height: 2500px;
+        min-height: 100vh;
         z-index: 1;
       }
 
@@ -78,7 +78,7 @@ Example:
       }
 
       .navbar ul.slide-menu>li:first-of-type {
-        padding: 18.5px 30px;
+        padding: 22px 30px;
       }
 
       .navbar ul.slide-menu>li.country a img {
@@ -107,14 +107,11 @@ Example:
       }
 
       .navbar ul.slide-menu>li form input[type=submit] {
-        background: url("img/search_img.svg") top left no-repeat;
+        background-image: url("img/search_img.svg");
+        background-size: 16px;
         text-indent: -9999px;
         border: 0 none;
-        width: 16px;
-        height: 16px;
         position: absolute;
-        top: 8px;
-        right: 8px;
       }
 
       .navbar ul.slide-menu>li form input[type=submit]:hover {
