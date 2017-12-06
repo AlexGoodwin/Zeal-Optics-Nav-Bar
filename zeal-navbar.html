@@ -1,13 +1,4 @@
 <!doctype html>
-<!--
-@license
-Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
-This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
-The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
-The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
-Code distributed by Google as part of the polymer project is also
-subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
 <link rel="import" href="../polymer/polymer.html">
 
 <!--
@@ -43,7 +34,6 @@ Example:
         background: transparent;
         padding: 0;
         text-align: center;
-        font-size: 14px;
         width: 100%;
         z-index: 1;
       }
@@ -51,12 +41,10 @@ Example:
       .navbar.slide-active {
         overflow-x: hidden;
         overflow-y: visible;
-        height: 64px;
       }
 
       .navbar.slide-active .nav-container {
         left: 230px;
-        position: fixed;
         top: 0;
         z-index: 1;
       }
@@ -108,7 +96,6 @@ Example:
         border-bottom: 1px solid #333;
         padding: .5em 30px .5em .5em;
         font-style: italic;
-        font-size: 14px;
         border-radius: 0;
         -webkit-appearance: none;
         width: 100%;
@@ -137,16 +124,19 @@ Example:
       .navbar ul.slide-menu>li>a {
         display: block;
         color: #333;
-        background: url("img/accordion-arrow-down.gif") 195px center no-repeat;
+        background-image: url("img/accordion-arrow-down.svg");
+        background-repeat: no-repeat;
+        background-size: 15px;
+        background-position: calc(100% - 1em) center;
         padding: 20px 30px;
       }
 
       .navbar ul.slide-menu>li.open>a {
-        background-image: url("img/accordion-arrow-up.gif");
+        background-image: url("img/accordion-arrow-up.svg");
       }
 
       .navbar ul.slide-menu>li>a.no-arrow {
-        background: none;
+        background-image: none;
       }
 
       .navbar ul.slide-menu>li>a span {
@@ -185,20 +175,10 @@ Example:
 
       .navbar .nav-container {
         background: white;
-        display: -webkit-flex;
-        display: -ms-flexbox;
         display: flex;
-        -webkit-flex-direction: row;
-        -ms-flex-direction: row;
         flex-direction: row;
-        -webkit-flex-wrap: nowrap;
-        -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
-        -webkit-justify-content: space-between;
-        -ms-flex-pack: justify;
         justify-content: space-between;
-        -webkit-align-items: center;
-        -ms-flex-align: center;
         align-items: center;
         margin: 0;
         padding: 8px 10px;
@@ -243,14 +223,8 @@ Example:
       }
 
       .navbar .nav-container .search-and-country {
-        -webkit-order: 1;
-        -ms-flex-order: 1;
         order: 1;
-        -webkit-flex-grow: 3;
-        -ms-flex-positive: 3;
         flex-grow: 3;
-        -webkit-flex-basis: 0;
-        -ms-flex-preferred-size: 0;
         flex-basis: 0;
         text-align: left;
       }
@@ -278,7 +252,7 @@ Example:
       }
 
       .navbar .nav-container .search-and-country.open-country a#nav-country {
-        background: url("img/country-selector-arrow.png") right 4px no-repeat;
+        background: url("img/country-selector-arrow.svg") right 4px no-repeat;
         padding-right: 4px;
       }
 
@@ -286,7 +260,6 @@ Example:
         display: inline-block;
         margin: 0 9px;
         padding: 0;
-        font-size: 12px;
         color: #666;
         padding-right: 0;
         font-weight: 500;
@@ -360,7 +333,7 @@ Example:
 
       .navbar .nav-container .search-and-country form#input_ZOSearchBoxComponent a#search-delete {
         border: none;
-        background: url(img/btn-search-close.gif);
+        background: url("img/btn-search-close.svg");
         width: 16px;
         height: 16px;
         position: absolute;
@@ -400,11 +373,7 @@ Example:
 
       .navbar .nav-container .nav-left,
       .navbar .nav-container .nav-right {
-        -webkit-flex-grow: 4;
-        -ms-flex-positive: 4;
         flex-grow: 4;
-        -webkit-flex-basis: 0;
-        -ms-flex-preferred-size: 0;
         flex-basis: 0;
         list-style: none;
         padding: 0;
@@ -424,8 +393,9 @@ Example:
 
       .navbar .nav-container .nav-left li.open ul.drop-down,
       .navbar .nav-container .nav-right li.open ul.drop-down {
-        height: 223px;
-        transition: height .5s ease, border 0s;
+        height: auto;
+        max-height: 250px;
+        transition: max-height .5s ease, border 0s;
         border-top-width: 4px;
         z-index: 10;
       }
@@ -449,7 +419,7 @@ Example:
 
       .navbar .nav-container .nav-left li ul.drop-down,
       .navbar .nav-container .nav-right li ul.drop-down {
-        height: 0;
+        max-height: 0;
         padding: 0;
         position: absolute;
         left: 0;
@@ -462,7 +432,7 @@ Example:
         font-size: 0;
         border-top: 0px solid #ccc;
         border-radius: 0;
-        transition: height .5s ease, border 0s;
+        transition: max-height .5s ease, border 0s;
         overflow: hidden;
         z-index: 9;
       }
@@ -473,7 +443,7 @@ Example:
         display: inline-block;
         width: 24%;
         font-size: 1rem;
-        padding: 0 50px 40px;
+        padding: 0 2em;
         box-sizing: border-box;
         vertical-align: top;
       }
@@ -494,32 +464,24 @@ Example:
 
       .navbar .nav-container .nav-left li ul.drop-down li a span,
       .navbar .nav-container .nav-right li ul.drop-down li a span {
-        font-size: 14px;
         letter-spacing: 1px;
         vertical-align: top;
         display: block;
+        margin: 1em auto;
       }
 
       .navbar .nav-container .nav-left {
-        -webkit-order: 2;
-        -ms-flex-order: 2;
         order: 2;
         text-align: right;
       }
 
       .navbar .nav-container .nav-right {
-        -webkit-order: 4;
-        -ms-flex-order: 4;
         order: 4;
         text-align: left;
       }
 
       .navbar .nav-container .logo {
-        -webkit-order: 3;
-        -ms-flex-order: 3;
         order: 3;
-        -webkit-flex-grow: 1;
-        -ms-flex-positive: 1;
         flex-grow: 1;
         margin: 0;
         padding: 0;
@@ -536,14 +498,8 @@ Example:
       }
 
       .navbar .nav-container .account-and-cart {
-        -webkit-order: 5;
-        -ms-flex-order: 5;
         order: 5;
-        -webkit-flex-grow: 3;
-        -ms-flex-positive: 3;
         flex-grow: 3;
-        -webkit-flex-basis: 0;
-        -ms-flex-preferred-size: 0;
         flex-basis: 0;
         text-align: right;
       }
@@ -574,14 +530,8 @@ Example:
 
       @media screen and (max-width: 991px) {
         .navbar .nav-container .left-menu {
-          display: -webkit-inline-flex;
-          display: -ms-inline-flexbox;
           display: inline-flex;
-          -webkit-flex-basis: 0;
-          -ms-flex-preferred-size: 0;
           flex-basis: 0;
-          -webkit-flex-grow: 3;
-          -ms-flex-positive: 3;
           flex-grow: 3;
         }
         .navbar .nav-container .search-and-country {
@@ -659,13 +609,13 @@ Example:
                         </li>
                         <li>
                             <a href="//www.zealoptics.com/en/shop/accessory-lenses">
-                                <img src$="[[importPath]]img/shop3.png" alt="Accessory Lenses">
+                                <img src$="[[importPath]]img/shop3.jpg" alt="Accessory Lenses">
                                 <span>Accessory Lenses</span>
                             </a>
                         </li>
                         <li>
                             <a href="//www.zealoptics.com/en/shop/accessories">
-                                <img src$="[[importPath]]img/shop4.png" alt="Accessories">
+                                <img src$="[[importPath]]img/shop4.jpg" alt="Accessories">
                                 <span>Accessories</span>
                             </a>
                         </li>
@@ -678,22 +628,28 @@ Example:
                     </a>
                     <ul class="drop-down">
                         <li>
-                            <a href="//www.zealoptics.com/en/sunglass-technology">
-                                <img src$="[[importPath]]img/shop1.png" alt="Sunglass Technology">
-                                <span>Sunglass Technology</span>
-                            </a>
+                          <a href="//www.zealoptics.com/en/sunglass-technology">
+                            <img src$="[[importPath]]img/shop1.jpg" alt="Sunglass Technology">
+                            <span>Sunglass Technology</span>
+                          </a>
                         </li>
                         <li>
-                            <a href="//www.zealoptics.com/en/goggle-tech">
-                                <img src$="[[importPath]]img/shop2.png" alt="Goggle Technology">
-                                <span>Goggle Technology</span>
-                            </a>
+                          <a href="//www.zealoptics.com/en/goggle-tech">
+                            <img src$="[[importPath]]img/shop2.jpg" alt="Goggle Technology">
+                            <span>Goggle Technology</span>
+                          </a>
                         </li>
                         <li>
-                            <a href="//www.zealoptics.com/en/passport-page">
-                                <img src$="[[importPath]]img/prescription-dropdown.jpg" alt="Prescription">
-                                <span>Prescription</span>
-                            </a>
+                          <a href="//www.zealoptics.com/rls">
+                            <img src$="[[importPath]]img/portal-rls.jpg" alt="Portal RLS" />
+                            <span>Portal //RLS</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="//www.zealoptics.com/en/passport-page">
+                            <img src$="[[importPath]]img/prescription-dropdown.jpg" alt="Prescription">
+                            <span>Prescription</span>
+                          </a>
                         </li>
                     </ul>
                 </li>
@@ -796,6 +752,9 @@ Example:
                     </li>
                     <li>
                         <a href="//www.zealoptics.com/en/goggle-tech">Goggle Technology</a>
+                    </li>
+                    <li>
+                      <a href="//www.zealoptics.com/rls">Portal //RLS</a>
                     </li>
                     <li>
                         <a href="//www.zealoptics.com/en/passport-page">Prescription</a>
@@ -967,15 +926,6 @@ Example:
         // close side bar on window resize
         this.closeSlideMenu();
       });
-
-      window.addEventListener('scroll', () => {
-        // dynamically set 'fixed' class on component
-        if(this.offsetWidth > 991 && window.scrollY > 0) {
-          this.shadowRoot.querySelector('.nav-container').classList.add('fixed')
-        } else {
-          this.shadowRoot.querySelector('.nav-container').classList.remove('fixed')
-        }
-      })
 
       this.attachDesktopMenuHandlers();
 
