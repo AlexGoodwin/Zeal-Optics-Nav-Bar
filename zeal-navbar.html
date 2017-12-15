@@ -52,6 +52,7 @@ Example:
       .navbar.slide-active ul.slide-menu {
         left: 0;
         z-index: 1;
+        position: fixed;
       }
 
       .navbar ul.slide-menu {
@@ -95,7 +96,6 @@ Example:
         border: none;
         border-bottom: 1px solid #333;
         padding: .5em 30px .5em .5em;
-        font-style: italic;
         border-radius: 0;
         -webkit-appearance: none;
         width: 100%;
@@ -108,10 +108,13 @@ Example:
 
       .navbar ul.slide-menu>li form input[type=submit] {
         background-image: url("img/search_img.svg");
-        background-size: 16px;
+        background-repeat: no-repeat;
+        background-size: auto;
         text-indent: -9999px;
         border: 0 none;
         position: absolute;
+        right: .5em;
+        top: .5em;
       }
 
       .navbar ul.slide-menu>li form input[type=submit]:hover {
@@ -246,11 +249,20 @@ Example:
         transition: height .5s ease, border 0s, padding-left 0s, padding-right 0s;
         z-index: 11;
         list-style: none;
+        margin:
+      }
+
+      .navbar .nav-container .search-and-country.open-country ul#desktop-country-selector li {
+        margin: 0;
+        line-height: 2em;
       }
 
       .navbar .nav-container .search-and-country.open-country a#nav-country {
-        background: url("img/country-selector-arrow.svg") right 4px no-repeat;
-        padding-right: 4px;
+        background-image: url("img/country-selector-arrow.svg");
+        background-position: right;
+        background-size: 1em;
+        background-repeat: no-repeat;
+        padding-right: 1em;
       }
 
       .navbar .nav-container .search-and-country a {
@@ -554,7 +566,7 @@ Example:
             <div class="search-and-country">
                 <!-- search -->
                 <a href="#" id="nav-search" on-click="navSearch">
-                    <img src$="[[importPath]]img/search_img.svg">
+                    <img src$="[[importPath]]img/search_img.svg" alt="search">
                     <img class="active-triangle" src$="[[importPath]]img/menu_active.svg" alt="">
                 </a>
 
@@ -703,6 +715,12 @@ Example:
                             </a>
                         </li>
                         <li>
+                            <a href="http://coupons.zealoptics.com/media">
+                                <img data-src$="[[importPath]]img/media-dropdown.jpg" alt="Media">
+                                <span>Media</span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="//www.zealhd.com">
                                 <img data-src$="[[importPath]]img/zealhd-dropdown.jpg" alt="ZealHD.com">
                                 <span>ZealHD.com</span>
@@ -780,6 +798,9 @@ Example:
                     </li>
                     <li>
                         <a href="//www.zealoptics.com/en/events">Events</a>
+                    </li>
+                    <li>
+                        <a href="http://coupons.zealoptics.com/media">Media</a>
                     </li>
                     <li>
                         <a href="//www.zealhd.com/">ZealHD.com</a>
